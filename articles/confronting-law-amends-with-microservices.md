@@ -3,7 +3,7 @@ title: "法改正をマイクロサービスで立ち向かう（前編）"
 emoji: "🙆"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["microservice","ddd"]
-published: false
+published: true
 ---
 :::message
 この記事は [LITALICO Engineers Advent Calendar 2021](https://qiita.com/advent-calendar/2021/litalico)の12/配信になります。
