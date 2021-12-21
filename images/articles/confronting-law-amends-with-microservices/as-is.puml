@@ -1,0 +1,20 @@
+@startuml as-is
+title As-Is
+
+left to right direction
+
+[レセプトAPI(Laravel)] as rezept_master
+[請求業務アプリ(Vue+Nuxt)] as bill_ui
+[実績登録アプリ(Vue+Nuxt)] as scheduler
+[その他バックエンド＆フロントエンド] as other
+
+bill_ui --> rezept_master
+scheduler --> rezept_master
+other --> rezept_master
+
+note bottom of rezept_master
+    請求に関する関心事を扱うAPI
+end note
+
+
+@enduml

@@ -6,7 +6,7 @@ topics: ["microservice","ddd"]
 published: false
 ---
 :::message
-この記事は [LITALICO Engineers Advent Calendar 2021](https://qiita.com/advent-calendar/2021/litalico)の12/24配信になります。
+この記事は [LITALICO Engineers Advent Calendar 2021](https://qiita.com/advent-calendar/2021/litalico)のカレンダー2の12/24配信になります。
 :::
 
 ## はじめに
@@ -30,14 +30,11 @@ Engineers Advent Calendarなのでエンジニア向けの記事になります�
 実現したいイメージは以下になります。  
 前提としてSPAとして構築しているものとなります。  
 
-* As-Is
-:::message
-TODO
-:::
+* As-Is  
+![As-Is](/images/articles/confronting-law-amends-with-microservices/as-is.png)
+
 * To-Be
-:::message
-TODO
-:::
+![To-Be](/images/articles/confronting-law-amends-with-microservices/to-be.png)
 
 ## まず考えたこと
 
@@ -142,9 +139,8 @@ Proxyアプリケーションを実装する
 
 以下のようなイメージとなります。
 
-:::message
-TODO
-:::
+![rezept-router](/images/articles/confronting-law-amends-with-microservices/rezept-router.png)
+
 
 新しく追加したProxyアプリケーションのアプリ名はレセプトAPIへのルーティングのみを行うので `rezept-router` と命名しました。 ^[責務も明確になっているので個人的に気に入っています]
 

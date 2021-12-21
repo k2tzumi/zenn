@@ -1,0 +1,32 @@
+@startuml to-be
+title To-Be
+
+left to right direction
+
+[請求業務アプリ(Vue+Nuxt)] as bill_ui
+[実績登録アプリ(Vue+Nuxt)] as scheduler
+[その他バックエンド＆フロントエンド] as other
+[旧レセプトAPI(Laravel)] as rezept_master_201804
+[新レセプトAPI(Laravel)] as rezept_master_202104
+
+bill_ui --> rezept_master_201804
+scheduler --> rezept_master_201804
+other --> rezept_master_201804
+bill_ui --> rezept_master_202104
+scheduler --> rezept_master_202104
+other --> rezept_master_202104
+
+note bottom of rezept_master_201804
+    2021/04法改正前の請求に関する関心事を扱うAPI
+end note
+
+note bottom of rezept_master_202104
+    2021/04法改正後の請求に関する関心事を扱うAPI
+end note
+
+note "2つのドメインに分割" as note_sparate_domain
+
+rezept_master_201804 -- note_sparate_domain
+rezept_master_202104 -- note_sparate_domain
+
+@enduml
