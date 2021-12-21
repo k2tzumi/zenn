@@ -33,7 +33,7 @@ Engineers Advent Calendarなのでエンジニア向けの記事になります�
 * As-Is  
 ![As-Is](/images/articles/confronting-law-amends-with-microservices/as-is.png)
 
-* To-Be
+* To-Be  
 ![To-Be](/images/articles/confronting-law-amends-with-microservices/to-be.png)
 
 ## まず考えたこと
