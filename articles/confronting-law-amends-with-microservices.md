@@ -161,3 +161,9 @@ LITALICOは障害福祉領域において複数の事業を展開しています
 明日もアドカレ続きます。
 
 [@YudaiTsukamoto](https://qiita.com/YudaiTsukamoto) が何か書いてくれます！
+
+----
+追記：
+後編を投稿しました
+
+https://zenn.dev/katzumi/articles/confronting-law-amends-with-microservices2
