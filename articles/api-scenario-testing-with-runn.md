@@ -2,52 +2,54 @@
 title: "APIシナリオテストの新ツールrunn"
 emoji: "🧪"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["scenario-testing","automation","api"]
-published: false
+topics: ["e2e","automation","api","openapi","go","test,"rest"]
+published: true
 ---
 
 ## runnとの出会い
 
 4ヶ月ほど前にスキーマ駆動開発を行っているプロジェクトでいい感じのAPIのテストをしようと色々 [調査](https://zenn.dev/link/comments/1d69c758bfd222) をしていました。  
-その当時はOpenAPIでスキーマ定義してswagger-uiからポチポチ手動テストをしていましたが、API数も増えるし同じAPIでもパターンが結構あり、流石に手動でのテストは限界があるなーと考えていました。  
-パラメータ数も多いのでControllerテストで書くにしてもコード量が多くなるのと、レビューが辛いと感じていました。  
-最終的にはCIで自動テストまでもっていきたいが。。という思いでした。  
+その当時はOpenAPIでスキーマ定義してswagger-uiからポチポチ手動テストをしていましたが、APIの数も増えるし同じAPIでもパターンが結構あり、流石に手動でのテストでは限界があるなーと考えていました。  
+パラメータ数も多いのでControllerテストで書くにしてもコード量が多く、レビューが辛いと感じていました。  
+APIをE2Eでテストしたい、最終的にはCIで自動テストまでもっていきたいと思いました。  
 
-しかし、いざ調べてみると案外マッチするツールがありませんでした。いくつか調べた中では
+しかし、いざ調べてみると案外ニーズにマッチするツールが見当たりませんでした。いくつか調べた中では
 
 * [Postman](https://www.postman.com/)([Newman](https://github.com/postmanlabs/newman))
 * [Karate](https://github.com/karatelabs/karate)
 * [Scenarigo](https://github.com/zoncoen/scenarigo)
 
-がありましたが、微妙にマッチしませんでした。  
-API単体でのテストはどれも問題なく機能すると感じましたが、APIをチェインして呼び出すシナリオテストをするには難しそうと判断しました。
+があり良さそうに思いましたが、微妙にマッチしませんでした。  
+API単体でのテストは上記以外も数多く存在しましたが、APIをチェーンして呼び出すシナリオテストをするには難しそうと判断しました。
 
 APIをチェーンするというのは例えば
 
 1. 登録API（コードが発行される）
 2. 更新API（1.で発行されたコードを指定して更新）
 
-という一連の流れがあるケースです。  
+という一連の流れがあるケースです。`Chaining Requests` と呼ぶみたいです ^[参考: https://learning.postman.com/labs/postman-flows/getting-started/chaining-requests-with-data/]
 PostmanではGUIでパラメータ埋め込みをしてAPIを繋げていけそうな雰囲気がありましたが
 
 * GUIで出力したファイル（Collection）が大きすぎてレビューに向かない  
 GUIでパラメータを細かく設定していくのもかなり時間がかかり辛かったです。
 * シナリオをflowsで定義してみましたが、flowsをexportできずNewmanでCI実行できなさそうでした
 
-他のツールもレスポンスをステートとして引き継いでAPIを呼び出すということが、スクリプトを書かないといけなさそうな雰囲気があり直感的に使えなさそうでした。^[ツールがカバーする範囲が広く、自分の調べ方が良くなかったかもですが]
+他のツールもレスポンスをステートとして引き継いでAPIを呼び出すということが、スクリプトを書かないといけなさそうな雰囲気があり直感的に使えなさそうでした。^[ツールがカバーする範囲が広く、自分の調べ方が良くなかったかもですが。。]
 
-その中で以下の記事を見つけました。
+そうこうしている間にふと、以下の記事が目に止まりました。
 
 https://tech.pepabo.com/2022/06/07/scenario-testing-in-go/
 
 ひと目見てコレだ！という感じでした。  
-もうこちらの記事と [REAMDE](https://github.com/k1LoW/runn) を読んで貰えれば大凡の使い勝手の理解が出来る可読性の高さがありました。  
+こちらの記事と [REAMDE](https://github.com/k1LoW/runn) を読めば大凡の使い勝手の理解が出来る可読性の高さを感じました。  
 
-サクッとプロジェクトに導入し、一部機能のコントリビュートしながら3ヶ月間触ってみて感じたことを記事にしたいと思います。
+今回はAPIシナリオテストツールのrunnをプロジェクトに導入し、一部機能のコントリビュートしながら3ヶ月間触ってみておすすめだと感じたことを記事にまとめたいと思います。
 
-## APIチェーン楽チン
+## APIチェーンは簡単
 
-レスポンスを次のステップで参照できるので、サックとチェーンさせることが出来ます。
+シナリオはRunbookというyaml形式で記載します。  
+Runbook自体の記述方法は、上記の紹介記事やREADMEをさらっと目を通して貰えれば雰囲気は掴めると思います。  
+レスポンスを次のステップで参照できるので、サックとチェーンさせることが出来ます。  
 
 
 ```yaml
@@ -63,7 +65,7 @@ steps:
               email: "alice@example.com"
     test: steps.createUser.res.status == 200
   updateUser:
-    desc: Updated User APIのテスト
+    desc: Updated User APIのテスト（aliceをbobに変更する）
     req:
       /user/{{ steps.createUser.res.body.id }}:
         put:
@@ -73,13 +75,13 @@ steps:
     test: steps.updateUser.res.status == 200
 ```
 
-`{{ }}` で囲まれた `steps.createUser.res.body.id` の部分が `Create User` したレスポンスのIDを展開する式です。　　
+`{{ }}` で囲まれた `steps.createUser.res.body.id` の部分が `Create User` したレスポンスデータに含まれる `id` を展開する式です。　　
 実行したステップ名（上記例だと `createUser` と `updateUser` ) を指定して
 
 * `ステップ名.res.status`  
 レスポンスのステータスコード
 * `ステップ名.res.headers['ヘッダー名'][0]`  
-レスポンスヘッダー
+レスポンスヘッダ
 * `ステップ名.res.body`  
 レスポンスのボディ
 
@@ -96,18 +98,18 @@ steps:
 ```
 
 `username` を参照するには `{{ ステップ名.res.body.data.username }}` で展開ができます。
-期待値の検証も `test` 構文に同様に記載ができます。
+期待値の検証も `test` 構文に同様に書くことができます。
 
 ```yml
-    test: currect.res.status == 200 && currect.res.data.email == "alice@example.com"
+    test: current.res.status == 200 && current.res.data.email == "alice@example.com"
 ```
 
-ステップ名が `current` になっていますが、runner実行時と同じステップでtestを実行した場合にステップ名の予約後になっています。  
+ステップ名が `current` になっていますが、runnerの実行ステップと同じステップを参照できる予約語になっています。  
 test構文の場合は `{{  }}` で式を囲まなく直接記載します。
 
 ## シナリオを再利用して書ける
 
-varsとincludeを組み合わせてシナリオを再利用させることができます。  
+varsとinclude構文を組み合わせてシナリオを再利用させることができます。  
 前述例のAPIチェーンを再利用させて書くとこんな感じになります。
 
 * createUser.yml
@@ -134,7 +136,7 @@ varsとincludeを組み合わせてシナリオを再利用させることがで
     email: "bob@example.com"
   steps:
     createUser:
-      desc: Create User APIのテスト（IDが発行される）
+      desc: Create User APIのテスト（include実行）
       include:
         path: createUser.yml
         vars:
@@ -153,11 +155,12 @@ varsとincludeを組み合わせてシナリオを再利用させることがで
   ```
 
 includeを使用してCreate Userのテストが再利用されるようになりました。  
-include時にvarsを上書きできるようになっているので、必要なパラメータをvarsにしておくと再利用性が高まるかと思います。  
-また `skipTest` を `true` にしておくと、includeされたシナリオのtest構文がスキップされるので軽微ですが実行時間の短縮になります。
+varsはシナリオ内で利用できる変数を定義できます。
+include時にvarsを上書きできるようになっているので、必要なパラメータをvarsにしておくと再利用性が高くなります。  
+また `skipTest` を `true` にしておくと、includeしたいシナリオのtest構文がスキップされるので軽微ですが実行時間の短縮になります。
 
-注意点としてDRYに書きすぎると、どこまでも数珠つなぎになってしまいます。  
-メンテナンス性や読みやすさを顧慮してシナリオを適度に共通化する感じが良いです。
+注意点としてシナリオをDRYに書きすぎると、どこまでも数珠つなぎになってしまいます。  
+メンテナンス性や読みやすさを顧慮して適度に共通化する感じが良いです。
 
 ## データ駆動テストができる
 
@@ -177,7 +180,7 @@ varsの設定でjson読み込みをサポートさせました。
     createUserRequest: "json://path/to/user.json"
   steps:
     createUser:
-      desc: Create User APIのテスト（IDが発行される）
+      desc: Create User APIのテスト（request bodyをjsonファイルで指定）
       req:
         /user:
           post:
@@ -201,7 +204,7 @@ APIが複雑でパラメータが多い場合等、jsonデータをそのまま�
     createUserResponse: "json://path/to/user_response.json"
   steps:
     createUser:
-      desc: Create User APIのテスト（IDが発行される）
+      desc: Create User APIのテスト（リクエストとレスポンスの期待値をjsonデータで受け取る）
       req:
         /user:
           post:
@@ -224,7 +227,7 @@ APIが複雑でパラメータが多い場合等、jsonデータをそのまま�
        - "json://path/to/case3_response.json"
   steps:
     createUser:
-      desc: Create User APIのテスト（IDが発行される）
+      desc: Create User APIのテスト（jsonファイル数分繰り返しテストする）
       loop:
         count: len(vars.requestJson)
       include:
@@ -236,7 +239,7 @@ APIが複雑でパラメータが多い場合等、jsonデータをそのまま�
 
 
 createUserBase.ymlではレスポンスの期待値のチェック様に `compare` という組み込み関数を用意しました。  
-もしレスポンス内で毎回値が変わるフィールドがあれば、第3引数以降にフィールド名を指定して除外できるようにもなっています。  
+もしレスポンス内で毎回値が変わるフィールドがあれば、第3引数以降にフィールド名を指定して除外できるようになっています。  
 
 createUserPattern.ymlからcreateUserBase.ymlへリクエストと期待値のjsonをloop構文を使って渡しています。  
 ループカウンターは `i` の部分になります。
@@ -244,8 +247,8 @@ createUserPattern.ymlからcreateUserBase.ymlへリクエストと期待値のjs
 
 ## jsonファイル以外にも直接DBからデータを参照して活用できる
 
-他のAPIツールにない協力な機能です。  
-前述のloop構文と組み合わせればかなり強烈にアクセスができるかと思いますw
+他のAPIツールにない強力な機能です。  
+前述のloop構文と組み合わせればかなり大量にアクセスができるかと思いますw  
 
 ```yaml
 runners:
@@ -263,7 +266,7 @@ steps:
           body: null
 ```
 
-あと地味に登録系APIを呼び出しして、結果がレスポンスからは伺いしれないケースでもDBのレコード値を期待値として検証することができるのも大変役に立ちます。
+リクエストの結果がレスポンスから窺い知れないケースでも、DBへクエリ発行して期待値として検証することができるのも地味ですが役に立ちます
 
 ## シナリオをシンプルにしデータは柔軟にする
 
@@ -271,12 +274,12 @@ steps:
 試験的な機能ではあるのですが、[Go Template](https://pkg.go.dev/text/template)の機能を利用してデータを生成できる仕組みも組み込んでいます。
 
 やり方は先程のvars構文でjsonを読み込む場合と同じで拡張子だけを `.json.template` にするだけです。  
-includeのvarsのみで有効です。
+includeのvarsの上書き時に利用すると、前ステップの結果等を踏まえたデータを生成することができます。
 
 * updateUserPattern.yml
   ```yml
     updatedUser:
-      desc: Updated User APIのテスト
+      desc: Updated User APIのテスト（テンプレートで期待値を生成）
       include:
         path: updateUser.yml
         vars:
@@ -294,14 +297,13 @@ includeのvarsのみで有効です。
   ```
 
 varsと変数展開と似ていて紛らわしいのですが、これはGo Templateの記法となります。  
-こちらのテンプレート内でも前のステップのレスポンス等も参照できます。  
-テンプレートならではな使い方として。ifやrangeが使えるのでイチからデータを作り込むことが可能になると考えています。  
+テンプレートとして機能し、idの値を埋め込む等できます。    
+またテンプレートの構文としてifやrangeが使えるので単純な値の埋め込みだけでなく、よりダイナミックにデータを生成することができます。
 
-
-## 色々な環境でもサクッと動かすことができる
+## 色々な環境でサクッと動かすことができる
 
 goのコマンドとして実装されているので、CIやそれ以外の環境でも簡単に動かすことができます。
-環境依存の部分は環境変数も参照可能なので切り替えが簡単にできます。
+シナリオ内で環境変数の参照が可能で、環境毎のエンドポイント等の違いを切り替えることができます。
 
 ```yaml
 runners:
@@ -310,16 +312,15 @@ runners:
   db: my:dbuser:${DB_PASS}@${DB_HOST:-localhost}:3306/dbname
 ```
 
-runners構文でリクエスト先のエンドポイントや。DBの接続先を指定可能です。  
-ここで環境変数を使えるので埋め込んでおくと良いです。  
-またdocker-composeのようにdefault値も上述の様に記載ができるので普段はローカル用にして、それ以外の環境の場合は環境変数を上書きする感じで使います。
+runners構文内の設定は上記の様に環境変数を埋め込んでおくと良いです。  
+docker-composeのように環境変数の参照時にdefault指定ができます。  
+普段はローカル用にして、それ以外の環境の場合は環境変数で上書きする感じで使えます。
 
-個人的に嬉しかった所として、デプロイ後の動作検証がrunnのコマンド一発で済むようになったことです。  
+環境変数を埋め込むのにひと手間かかりますが、デプロイ後の動作検証がrunnのコマンド一発で済むようになったりと活用範囲が広がっておすすめです。  
 
 GitHub Actionsで簡単に動かせるようにカスタムアクションも用意したので良かったら是非！
 
 https://github.com/k2tzumi/runn-action
-
 
 
 ## デバック実行とOpenAPIV3対応が親切
@@ -407,15 +408,15 @@ OpenAPIの仕様書通りのリクエストとレスポンスになってない�
 シナリオ自体の品質を高めるのと一緒にテスト対象のAPIの品質も同時にチェックできて大変良いです。  
 実際にrunnに導入していくつかAPIの不具合を検知することが出来ました。
 
-## 今後の発展性に期待！
+## 今後の発展にも期待！
 
-今進行中なものとしてGolden Test用にCapture機能が実装され始めたり、組込み関数が実装しやすく拡張ポイントが提供されていたりもするので今後にも期待です。
+今進行中なものとしてGolden Test用にCapture機能が実装され始めたり、組込み関数が実装しやすく拡張ポイントが提供されていたりもするので今後も期待大です。
 
 ## 最後に
 
 素晴らしいツールを世に送り出してくれた [@k1low](https://twitter.com/k1low) さんに感謝です。  
 記事を見かけて感じた、可読性の高さと学習の容易性は思惑以上でした。既にプロジェクト内には浸透済みとなり、なくてはならないツールになりました。  
-この記事を見た方に是非試してみて頂きたいと思います。
+この記事を見て興味を持たれた方は是非試してみて頂きたいと思います。
 
 また私個人（Contributor）としては、ふわっとした提案でも丁寧にディスカッションをして頂き大変ありがたかったです。  
 背景や考え方についての学びも多く、何よりも発展的に機能が充実していく様を間近で見られるのが楽しいです。  
