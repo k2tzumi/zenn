@@ -6,6 +6,13 @@ topics: ["e2e","automation","api","openapi","go","test","rest"]
 published: true
 ---
 
+## runn is 何？
+
+３行まとめ
+https://twitter.com/katzchum/status/1561490586858770432
+
+今回はAPIシナリオテストツールのrunnをプロジェクトに導入し、一部機能のコントリビュートしながら3ヶ月間触ってみておすすめだと感じたことを記事にまとめたいと思います。
+
 ## runnとの出会い
 
 4ヶ月ほど前にスキーマ駆動開発を行っているプロジェクトでいい感じのAPIのテストをしようと色々 [調査](https://zenn.dev/link/comments/1d69c758bfd222) をしていました。  
@@ -42,8 +49,6 @@ https://tech.pepabo.com/2022/06/07/scenario-testing-in-go/
 
 ひと目見てコレだ！という感じでした。  
 こちらの記事と [REAMDE](https://github.com/k1LoW/runn) を読めば大凡の使い勝手の理解が出来る可読性の高さを感じました。  
-
-今回はAPIシナリオテストツールのrunnをプロジェクトに導入し、一部機能のコントリビュートしながら3ヶ月間触ってみておすすめだと感じたことを記事にまとめたいと思います。
 
 ## APIチェーンは簡単
 
