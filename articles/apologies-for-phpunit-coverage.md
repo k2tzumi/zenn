@@ -1,6 +1,6 @@
 ---
 title: "PHPUnitでカバレッジがうまく取れなくて嵌った話"
-emoji: "🧪"
+emoji: "🙇"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["php","phpunit","coverage","やらかし"]
 published: true
