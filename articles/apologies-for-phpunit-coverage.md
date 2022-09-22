@@ -3,7 +3,7 @@ title: "PHPUnitでカバレッジがうまく取れなくて嵌った話"
 emoji: "🧪"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["php","phpunit","coverage","やらかし"]
-published: false
+published: true
 ---
 
 ## はじめに
@@ -47,14 +47,14 @@ pcovからXDebug
 
 [@covers](https://phpunit.readthedocs.io/ja/latest/annotations.html#covers) です  
 
-![@coversの説明]](/images/articles/apologies-for-phpunit-coverage/description_of_covers.png)
+![@coversの説明](/images/articles/apologies-for-phpunit-coverage/description_of_covers.png)
 
 これを使うとテストの目的が明示されるので良いのと、なによりIDEのサポートが得られプロダクションコードからテストコードにjumpさせることができます。  
 jumpできない場合はテストコードが書いてないことがわかり、便利だなーと思いコツコツとアノテーションを埋め込んでいきました。　　  
 
 `@covers`アノテーションの書き方はいくつかあり、以下の表がまとめられていました
 
-![@coversの推奨記述形式]](/images/articles/apologies-for-phpunit-coverage/recommended_description_format.png)
+![@coversの推奨記述形式](/images/articles/apologies-for-phpunit-coverage/recommended_description_format.png)
 
 * `@covers ClassName`
 * `@covers ::functionName`
@@ -63,7 +63,7 @@ jumpできない場合はテストコードが書いてないことがわかり�
 後者は `@coversDefaultClass` と組み合わせて使います。  
 
 https://phpunit.readthedocs.io/ja/latest/annotations.html#coversdefaultclass
-![@coversDefaultClassの説明]](/images/articles/apologies-for-phpunit-coverage/description_of_covers_default_class.png)
+![@coversDefaultClassの説明](/images/articles/apologies-for-phpunit-coverage/description_of_covers_default_class.png)
 
 
 実際に上記の図のサンプルコードの様に記載していきました。  
