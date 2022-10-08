@@ -3,7 +3,7 @@ title: "GitHub Actionsで連続pushした時に止めるアレ"
 emoji: "⛔"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["githubactions","ci"]
-published: false
+published: true
 ---
 
 
@@ -38,7 +38,7 @@ GitHub Actionsのリリース直後にこちらの機能と `[ci skip]` が使�
 https://github.com/marketplace/actions/workflow-run-cleanup-action
 https://github.com/marketplace/actions/skip-duplicate-actions
 
-## アレ　＝　concurrency
+## アレ = concurrency
 
 オフィシャルの日本語ドキュメントはこちら  
 https://docs.github.com/ja/actions/using-jobs/using-concurrency
