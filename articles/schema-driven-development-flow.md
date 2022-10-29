@@ -57,8 +57,8 @@ APIの数が多かったり、リクエストやレスポンスが複雑だっ�
 flowchart LR
     OAS[Open API Spec] -->|コード生成| Stub[Stubコード]
     Stub -->|実装| Production[実際のコード]
-    Production --x |fa:fa-ban 定義が間違っていても自動反映はされない| OAS
-    OAS --x |fa:fa-ban 変更済みのStubを反映することはできない| Production
+    Production --x |"❌ 定義が間違っていても自動反映はされない"| OAS
+    OAS --x |"❌ 変更済みのStubを反映することはできない"| Production
 ```
 
 上記フローになり反映ができない箇所によってどうしても乖離がでてしまってイマイチです。
@@ -502,4 +502,18 @@ https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 ## 最後に
 
-TODO
+ドキュメントを書くというと何処か億劫で、メンテナンスが忘れがちになってしまうマインドがありますが、スキーマ駆動開発ではそうも言っていられません。  
+今回紹介したようにコードと一緒にスキーマを添えて書くやり方であれば、コードを書く人とレビューする人それぞれの心理的負担も軽減できます。  
+またスキーマからピンポイントで必要なvalidationだったりroutingが反映される仕組みがあれば十分に書く動機づけにもなります。  
+またlintやテスト時のスキーマ活用によって、プロダクトコードだけでなくスキーマ自体の品質も向上させることができます。  
+スキーマ駆動開発自体は開発プロセスですので、上記に記載したようにフローを適切に整備することでより良い品質や開発者体験を得ることができると思います。  
+逆にフローが複雑で手数が多かったり、フローが下流から上流に戻るような感じになっていると辛くなってくると思います。  
+今回はOpenAPIでLaravelでのスキーマ駆動開発フローについて説明しましたが、このフロー自体やエッセンスは他のプロトコル・言語・フレームワークでも取り入れられる内容だと思いますので、是非参考になればと思います。
+
+こちらのエッセンスは以下の記事を参考にさせて頂きました。
+
+https://tech.osteel.me/posts/openapi-backed-api-testing-in-php-projects-a-laravel-example
+
+この記事で掲載されている以下の図が個人的にお気に入りです。
+
+![Relationship between OpenAPI, API and tests](https://tech.osteel.me/images/2020/11/11/openapi_02.png)
