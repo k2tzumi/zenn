@@ -184,8 +184,7 @@ RequestのSchemaとして定義する際にプロパティを追加したいの�
 [Petstoreのユーザー登録API](https://petstore3.swagger.io/#/user/createUser) を題材に一部内容を改変して記述しています。
 :::
 
-* BaseRequestTrait.php（一部のみ）
-```php
+```php:BaseRequestTrait.php（一部のみ）
 <?php
 ​
 use Illuminate\Validation\Rule;
@@ -256,8 +255,7 @@ trait BaseRequestTrait
     }
 }
 ```
-* CreateUserRequest.php
-```php
+```php:CreateUserRequest.php
 <?php
 
 use OpenApi\Attributes as OA;
@@ -339,8 +337,7 @@ PHP8.1からEnumも利用できるようになりましたが、当初swagger-ph
 
 https://github.com/zircote/swagger-php/pull/1303
 
-* UserResponse.php
-```php
+```php:UserResponse.php
 <?php
 ​
 use OpenApi\Attributes as OA;
@@ -371,8 +368,7 @@ class UserResponse
     }
 }
 ```
-* Controller.php
-```php
+```php:Controller.php
 <?php
 ​
 use OpenApi\Attributes as OA;
@@ -393,8 +389,7 @@ class Controller
 {
 }
 ```
-* UserController.php
-```php
+```php:UserController.php
 <?php
 ​
 use Illuminate\Http\JsonResponse;
@@ -479,7 +474,7 @@ Controllerテストでは [laravel-openapi-validator](https://github.com/kirschb
 一度設定してしまえば、普段どおりにControllerテストを実装するだけでテストケースのリクエスト自体 ^[テストケースとして妥当化か？] とレスポンスのチェックがされます。  
 例えばリクエストに誤りがあった場合に以下の様にスキーマ定義の内容に沿って叱ってくれます。  
 
-```console
+```console:Controllerテストの失敗ログ
 {
     "usernamae": "scott",
     "email": "foo@example.com",
@@ -517,5 +512,6 @@ https://tech.osteel.me/posts/openapi-backed-api-testing-in-php-projects-a-larave
 この記事で掲載されている以下の図が個人的にお気に入りです。
 
 ![Relationship between OpenAPI, API and tests](https://tech.osteel.me/images/2020/11/11/openapi_02.png)
+*fancy diagram to illustrate the relationship between the API, the integration tests and the OpenAPI definition*
 
 この図のOpenAPIとAPIの距離を縮めることができれば、より品質を向上できるのではないでしょうか？
