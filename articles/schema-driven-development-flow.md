@@ -517,3 +517,5 @@ https://tech.osteel.me/posts/openapi-backed-api-testing-in-php-projects-a-larave
 この記事で掲載されている以下の図が個人的にお気に入りです。
 
 ![Relationship between OpenAPI, API and tests](https://tech.osteel.me/images/2020/11/11/openapi_02.png)
+
+この図のOpenAPIとAPIの距離を縮めることができれば、より品質を向上できるのではないでしょうか？
