@@ -154,13 +154,13 @@ flowchart BT
       E2ETest["APIシナリオテスト(runn)"]
     end
 
-    click Schema "https://www.openapis.org/"
-    click Swagger "https://github.com/zircote/swagger-php"
-    click E2ETest "https://github.com/k1LoW/runn"
-    click Composer "https://github.com/kirschbaum-development/laravel-openapi-validator"
-    click Linter "https://github.com/stoplightio/spectral"
-    click UnitTest "https://github.com/sebastianbergmann/phpunit"
-    click Html "https://github.com/Redocly/redoc"
+    click Schema "https://www.openapis.org/" _blank
+    click Swagger "https://github.com/zircote/swagger-php" _blank
+    click E2ETest "https://github.com/k1LoW/runn" _blank
+    click Composer "https://github.com/kirschbaum-development/laravel-openapi-validator" _blank
+    click Linter "https://github.com/stoplightio/spectral" _blank
+    click UnitTest "https://github.com/sebastianbergmann/phpunit" _blank
+    click Html "https://github.com/Redocly/redoc" _blank
 ```
 
 コードファーストでOpenAPIの仕様書を書きつつ、各ファイルがコードから中心に自動作成されてテストも行うフローにしています。  
