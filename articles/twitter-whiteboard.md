@@ -1,6 +1,6 @@
 ---
 title: "Twitterのシステム構成図をまとめてみる"
-emoji: "📐"
+emoji: "🕊️"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["twiter","architecture"]
 published: true
@@ -81,13 +81,19 @@ flowchart LR
 
 ## 最後に
 
-図をかいている間に以下のtweetが流れてきました
+図を書き始めている間に以下のtweetが流れてきました。
 https://twitter.com/alexxubyte/status/1594008281340530688
 
-雑に書きましたが、大体あっていて良かったですw
+こちらの方が見やすくて良いかと思いますw
+雑に書いていましたが、大体あっていて良かったですw
 
-図をまとめている際に以下の記事を見つけました
+あと図をまとめている際に以下の記事を見つけました。
 https://blog.twitter.com/engineering/en_us/topics/infrastructure/2020/rebuild_twitter_public_api_2020
 
-もともとGraphQLに統合していこうという流れがあった中で、TLS-APIを廃止するぞ！という所と幾つかのモジュールを分割して（Home mixerがそう？）リクエスト数を少なくしてこうという流れなのかなーと思いました。
+もともとGraphQLに統合していこうという流れがあった中で、TLS-APIを廃止するぞ！という強い意志が表明されたのと幾つかのモジュールを分割して（Home mixerがそう？）リクエスト数を少なくしてこうという流れなのかなーと思いました。
 識者の方のフォローコメントを頂けると嬉しく思います。
+
+[追記]
+図に出てくる `Manhattan` は最初わからなかったのですが `real-time, multi-tenant distributed database` だそうです
+
+https://blog.twitter.com/engineering/en_us/a/2014/manhattan-our-real-time-multi-tenant-distributed-database-for-twitter-scale
