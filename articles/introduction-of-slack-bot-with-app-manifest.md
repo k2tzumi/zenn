@@ -274,7 +274,10 @@ makeコマンド内でWebAppとして登録されているので、画面の様�
 1. アプリケーションの承認  
 ![アプリケーション承認ダイアログ](/images/articles/introduction-of-slack-bot-with-app-manifest/verified-this-app.png =800x)
 ここが分かりづらいですが、「Advanced」をクリック「Go to openai-slack-bot(unsafe)」をクリック。。
-![アプリケーション承認続き](/images/articles/introduction-of-slack-bot-with-app-manifest/continue.png =800x)
+![アプリケーション承認続き](/images/articles/introduction-of-slack-bot-with-app-manifest/continue.png =800x)  
+更にクリック
+![アプリケーション承認](/images/articles/introduction-of-slack-bot-with-app-manifest/trust-bot.png =800x)  
+
 しばらく待って
 ![デプロイ完了](/images/articles/introduction-of-slack-bot-with-app-manifest/deployed.png =800x)
 こちらの画面が表示されればOKです！  
@@ -293,6 +296,8 @@ tokenが２種類ありますが、必ず `Refresh token` を指定してして�
 ![Slackへのインストール](/images/articles/introduction-of-slack-bot-with-app-manifest/add-to-slack.png =800x)
 
 次の画面がこちらになります。こちらの画面から「Add to Slack」ボタンを押してください。
+
+![OAuth認証](/images/articles/introduction-of-slack-bot-with-app-manifest/oauth.png =800x)
 
 後は他のSlackアプリの導入と同じように権限周りの確認をしてそのままOKすれば終わりです。
 
