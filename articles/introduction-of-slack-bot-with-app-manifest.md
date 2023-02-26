@@ -108,7 +108,7 @@ https://api.slack.com/methods/apps.manifest.create
 
 https://api.slack.com/apps
 
-![Configuration token発行](/images/articles/introduction-of-slack-bot-with-app-manifest/configuration-token.png)
+![Configuration token発行](/images/articles/introduction-of-slack-bot-with-app-manifest/configuration-token.png =800x)
 
 `apps.manifest.create` のAPIの呼び出しに成功するとBotアプリケーション側に設定すべきApp Credentials（Client IDやClient Secret等）がレスポンスされるので保持するようにします^[ここら辺のSlack側だけでなくBot側も設定が必要というものインストールの難易度を上げている要因だと思っています]。  
 注意点としてはこの時点ではOAuthの設定はできないという点です。  
@@ -263,20 +263,20 @@ Google Apps ScriptをWebAppとしてデプロイする必要があります。
   ```
   ブラウザが起動し、スクリプトエディタが開かれます
 1. 「デプロイ」 → 「新しいデプロイ」を選択
-![スクリプトエディタ](/images/articles/introduction-of-slack-bot-with-app-manifest/script-editor.png)
+![スクリプトエディタ](/images/articles/introduction-of-slack-bot-with-app-manifest/script-editor.png =800x)
 1. そのまま「デプロイ」をクリック  
-![デプロイ](/images/articles/introduction-of-slack-bot-with-app-manifest/deploy.png)
+![デプロイ](/images/articles/introduction-of-slack-bot-with-app-manifest/deploy.png =800x)
 makeコマンド内でWebAppとして登録されているので、画面の様にそのままデプロイするだけだと思います。
 1. アクセスを承認
-![デプロイ](/images/articles/introduction-of-slack-bot-with-app-manifest/authorize-access.png)
+![デプロイ](/images/articles/introduction-of-slack-bot-with-app-manifest/authorize-access.png =800x)
 1. 実行ユーザーのアカウント選択  
-![アカウント選択](/images/articles/introduction-of-slack-bot-with-app-manifest/choosen-an-account.png)
+![アカウント選択](/images/articles/introduction-of-slack-bot-with-app-manifest/choosen-an-account.png =800x)
 1. アプリケーションの承認  
-![アプリケーション承認ダイアログ](/images/articles/introduction-of-slack-bot-with-app-manifest/verified-this-app.png)
+![アプリケーション承認ダイアログ](/images/articles/introduction-of-slack-bot-with-app-manifest/verified-this-app.png =800x)
 ここが分かりづらいですが、「Advanced」をクリック「Go to openai-slack-bot(unsafe)」をクリック。。
-![アプリケーション承認続き](/images/articles/introduction-of-slack-bot-with-app-manifest/continue.png)
+![アプリケーション承認続き](/images/articles/introduction-of-slack-bot-with-app-manifest/continue.png =800x)
 しばらく待って
-![デプロイ完了](/images/articles/introduction-of-slack-bot-with-app-manifest/deployed.png)
+![デプロイ完了](/images/articles/introduction-of-slack-bot-with-app-manifest/deployed.png =800x)
 こちらの画面が表示されればOKです！  
 アプリケーション更新時など２回目のデプロイは `make deploy` コマンドだけで済むようになっています。
 
@@ -284,20 +284,20 @@ makeコマンド内でWebAppとして登録されているので、画面の様�
 
 先程のデプロイ画面のURLをクリックすると以下の画面が開きます。 ^[もしURLを控え忘れていたら `make application` で最新のデプロイバージョンを選択してもURLを開けます。]
 
-![App Manifest登録](/images/articles/introduction-of-slack-bot-with-app-manifest/create-app-manifest.png)
+![App Manifest登録](/images/articles/introduction-of-slack-bot-with-app-manifest/create-app-manifest.png =800x)
 
 先に導入手順のところで説明したConfiguration tokenをこちらの画面で入力します。  
 tokenが２種類ありますが、必ず `Refresh token` を指定してしてください。^[tokenの有効期限が短くRefresh tokenを指定することが推奨されています。あと後述する再インストール時にもこちらのtokenは利用します。]入力後に `Create App` ボタンをクリックしてください。
 クリックによりApp Manifestが自動的に作成され、Slack上にBotアプリが仮登録されます。  
 
-![Slackへのインストール](/images/articles/introduction-of-slack-bot-with-app-manifest/add-to-slack.png)
+![Slackへのインストール](/images/articles/introduction-of-slack-bot-with-app-manifest/add-to-slack.png =800x)
 
 次の画面がこちらになります。こちらの画面から「Add to Slack」ボタンを押してください。
 
 後は他のSlackアプリの導入と同じように権限周りの確認をしてそのままOKすれば終わりです。
 
 
-![完了](/images/articles/introduction-of-slack-bot-with-app-manifest/completed.png)
+![完了](/images/articles/introduction-of-slack-bot-with-app-manifest/completed.png =800x)
 
 こちらの画面が表示されればOKです。
 後は、好きなチャネルに `@open-ai` ユーザーをinviteして試してみてください。  
