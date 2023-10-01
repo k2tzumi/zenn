@@ -13,3 +13,8 @@ upgrade: ## Upgrades package.json
 upgrade:
 	npx -p npm-check-updates  -c "ncu -u"
 	npm update
+
+.PHONY: preview
+preview: ## Preview contents
+preview:
+	npx zenn preview
