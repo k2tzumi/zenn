@@ -6,6 +6,11 @@ topics: ["hacktoberfest","oss"]
 published: true
 ---
 
+:::message alert
+Hacktoberfestのルールが厳密化されており、任意の公開リポジトリにプルリクエストを送るだけではなく、参加するリポジトリがHacktoberfestに登録されているか、またはプルリクエストに `hacktoberfest-accepted` というラベルが付けられているかを確認する必要があることが確認できました。  
+すでにプルリクエストを送ってしまわれた方大変申し訳ございません。記事を訂正してお詫びいたします :bow:
+:::
+
 ## はじめに
 
 皆さん推しOSSはありますか？  
@@ -146,22 +151,30 @@ A: マージされれば有効としてカウントされますが、マージ�
 但し、拒否されたり無効とされたりした場合はカウントされません。
 
 Q: どのリポジトリにプルリクエストを送ればいいの？
-A: パブリックなリポジトリならどれでもOKなようです。  
+A: ~~パブリックなリポジトリならどれでもOKなようです。~~  
+*Hacktoberfestに参加表明しているリポジトリに限られます。*
+*表明されているリポジトリは [こちら](https://github.com/topics/hacktoberfest) で公開されていますので確認の上、プルリクエストを送ってください。*
 ただし、各リポジトリでコントリビュートする際のお作法があればそれに従ってください ^[プルリクエストのテンプレートやコーディングスタイルやテストの実施など]
 
 Q: 自分がオーナーのリポジトリにも送ってもいいの？
-A: パブリックなリポジトリなら問題ないです。 
+A: ~~パブリックなリポジトリなら問題ないです。~~
+*自身のリポジトリでも Hacktoberfestへの参加表明が必要とななります。*
+*topicsに `hacktoberfest` を追加してください。*
+*若しくはプルリクエストに `hacktoberfest-accepted` というラベルを付けてください。*
 ここだけの話ですが、zennはGithub連携ができるようになっています。  
 パブリックなリポジトリだと記事をプルリクエストにしてアップするだけでカウントすることができると思いますw
 
 Q: Hacktoberfestに参加表明しているリポジトリに限定したほうがいいのでは？
-A: 限定はされていないです。ただし、表明されているリポジトリの方が趣旨を理解されているのでトラブルは少ないかもです ^[10月になると質の低いプルリクエストが増えることに不満を抱いている方がいらっしゃるみたいです。]  
+A: ~~限定はされていないです。ただし、表明されているリポジトリの方が趣旨を理解されているのでトラブルは少ないかもです ^[10月になると質の低いプルリクエストが増えることに不満を抱いている方がいらっしゃるみたいです。]~~
+*限定されておりました。申し訳ございません。*
 表明されているリポジトリは [こちら](https://github.com/topics/hacktoberfest) で公開されていますので参考まで
 
 Q: 始めてのPRで少し怖いのですが
 A: はい最初は不安ですよね。そういう人の為にリポジトリが公開されています。
-[firstcontributions/first-contributions](https://github.com/firstcontributions/first-contributions/blob/main/translations/README.ja.md)
+~~[firstcontributions/first-contributions](https://github.com/firstcontributions/first-contributions/blob/main/translations/README.ja.md)~~
+[ossamamehmood/Hacktoberfest2023](https://github.com/ossamamehmood/Hacktoberfest2023)
 こちらの記事が参考になるので、是非この機会にチャレンジしてもらえると良いかと思います
+*リポジトリが限定されますので上記のリポジトリで読みかえてください*
 https://qiita.com/e99h2121/items/a5c7b9a71555d064c687
 
 Q: プルリクエストが受け付けられたか？不安
