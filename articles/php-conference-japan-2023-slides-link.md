@@ -11,7 +11,7 @@ published: true
 # お断り & お願い
 
 個人で集めた情報をもとに掲載しています。
-掲載に問題がある、訂正や追記が必要等ありましたら、[GitHubで編集を提案](https://github.com/k2tzumi/zenn/blob/main/articles/api-scenario-testing-with-runn.md)頂くか、コメント欄にてご指摘ください :bow:
+掲載に問題がある、訂正や追記が必要等ありましたら、[GitHubで編集を提案](https://github.com/k2tzumi/zenn/blob/main/articles/php-conference-japan-2023-slides-link.md)頂くか、コメント欄にてご指摘ください :bow:
 :::
 
 
