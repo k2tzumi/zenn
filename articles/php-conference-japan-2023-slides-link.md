@@ -81,7 +81,7 @@ https://fortee.jp/phpcon-2023/timetable
 |開始時間|セッション名|登壇者|スライドURL|このトークの時間帯のポスト|
 | ---- | ---- | ---- | ---- | ---- |
 |10:50|型安全なSQLテンプレートエンジンを構築する|うさみけんたさん(@tadsan)|Unknwon<br>[proposal](https://fortee.jp/phpcon-2023/proposal/5717d4a6-ebf0-47cb-9964-69cfb92e0f56)|[Link](https://twitter.com/search?q=since%3A2023-10-08_10%3A50%3A00_JST+until%3A2023-10-08_11%3A15%3A00_JST+%23phpcon+%23track4&src=savs)|
-|11:20|readonly class で作る堅牢なアプリケーション|河瀨 翔吾さん(@shogogg)|Unknwon<br>[proposal](https://fortee.jp/phpcon-2023/proposal/5588bf01-1723-4f58-9968-fed6919c4053)|[Link](https://twitter.com/search?q=since%3A2023-10-08_11%3A20%3A00_JST+until%3A2023-10-08_11%3A45%3A00_JST+%23phpcon+%23track4&src=savs)|
+|11:20|readonly class で作る堅牢なアプリケーション|河瀨 翔吾さん(@shogogg)|[Speaker Deck](https://speakerdeck.com/shogogg/readonly-class-tezuo-rujian-lao-naahurikesiyon)|[Link](https://twitter.com/search?q=since%3A2023-10-08_11%3A20%3A00_JST+until%3A2023-10-08_11%3A45%3A00_JST+%23phpcon+%23track4&src=savs)|
 |12:40|良いテストとは何か:持続可能で保守性の高いテストを書く|当田 昇さん(@picopico_dev)|[Speaker Deck](https://speakerdeck.com/picopico/liang-itesutotohahe-ka-chi-sok-ke-neng-debao-shou-xing-nogao-itesutowoshu-ku)|[Link](https://twitter.com/search?q=since%3A2023-10-08_12%3A40%3A00_JST+until%3A2023-10-08_13%3A05%3A00_JST+%23phpcon+%23track4&src=savs)|
 |13:10|ユニットテスト環境整備～みんながテストを書ける環境へ～|堀川慶太さん|[Speaker Deck](https://speakerdeck.com/pagos/yunitutotesutohuan-jing-zheng-bei-minnagatesutowoshu-keruhuan-jing-he)|[Link](https://twitter.com/search?q=since%3A2023-10-08_13%3A10%3A00_JST+until%3A2023-10-08_13%3A35%3A00_JST+%23phpcon+%23track4&src=savs)|
 |13:45|スポンサーセッション - 「Four Keysに基づくリリースプロセス改善とその成果」|小山 晃久さん(@akihisa1210)|[Speaker Deck](https://speakerdeck.com/ak1210/release-process-improvement-based-on-the-four-keys-and-its-results)|[Link](https://twitter.com/search?q=since%3A2023-10-08_13%3A45%3A00_JST+until%3A2023-10-08_14%3A10%3A00_JST+%23phpcon+%23track4&src=savs)|
@@ -115,7 +115,7 @@ https://fortee.jp/phpcon-2023/timetable
 |13:10|PHPerにとってのWebAssemblyの可能性|エターナルフィールドさん(@glassmonekey)|[Speaker Deck](https://speakerdeck.com/nagano/phpernitotutenowebassemblynoke-neng-xing)|[Link](https://twitter.com/search?q=since%3A2023-10-08_13%3A10%3A00_JST+until%3A2023-10-08_13%3A35%3A00_JST+%23phpcon+%23track6&src=savs)|
 |13:45|令和時代の PHP Extension の作り方 〜 FFI を添えて〜|工藤 剛さん(@zeriyoshi)|Unknown<br>[proposal](https://fortee.jp/phpcon-2023/proposal/747ee16f-3169-4094-be4f-b5b558273ea9)|[Link](https://twitter.com/search?q=since%3A2023-10-08_13%3A45%3A00_JST+until%3A2023-10-08_14%3A10%3A00_JST+%23phpcon+%23track6&src=savs)|
 |14:15|PHP 8.3のmbstringの進化を見てください - コントリビューターとしてのかかわり -|てきめんさん(@youkidearitai)|[Speaker Deck](https://speakerdeck.com/youkidearitai/php-8-dot-3nombstringnojin-hua-wojian-tekudasai-kontoribiyutatositenokakawari)|[Link](https://twitter.com/search?q=since%3A2023-10-08_14%3A15%3A00_JST+until%3A2023-10-08_14%3A40%3A00_JST+%23phpcon+%23track6&src=savs)|
-|14:50|PHPからはじめるコンピュータアーキテクチャ|長谷川智希さん(@tomzoh)|Unknown<br>[proposal](https://fortee.jp/phpcon-2023/proposal/71847fea-2edd-4fd8-bd1c-14fbffff776b)|[Link](https://twitter.com/search?q=since%3A2023-10-08_14%3A50%3A00_JST+until%3A2023-10-08_15%3A15%3A00_JST+%23phpcon+%23track6&src=savs)|
+|14:50|PHPからはじめるコンピュータアーキテクチャ|長谷川智希さん(@tomzoh)|Unknown<br>[Speaker Deck](https://speakerdeck.com/tomzoh/php-meets-silicon-a-fun-dive-into-computer-structures-php-conference-2023-ver)|[Link](https://twitter.com/search?q=since%3A2023-10-08_14%3A50%3A00_JST+until%3A2023-10-08_15%3A15%3A00_JST+%23phpcon+%23track6&src=savs)|
 
 ## アンカンファレンス & 懇親会
 
