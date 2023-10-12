@@ -80,7 +80,7 @@ https://fortee.jp/phpcon-2023/timetable
 
 |開始時間|セッション名|登壇者|スライドURL|このトークの時間帯のポスト|
 | ---- | ---- | ---- | ---- | ---- |
-|10:50|型安全なSQLテンプレートエンジンを構築する|うさみけんたさん(@tadsan)|Unknwon<br>[proposal](https://fortee.jp/phpcon-2023/proposal/5717d4a6-ebf0-47cb-9964-69cfb92e0f56)|[Link](https://twitter.com/search?q=since%3A2023-10-08_10%3A50%3A00_JST+until%3A2023-10-08_11%3A15%3A00_JST+%23phpcon+%23track4&src=savs)|
+|10:50|型安全なSQLテンプレートエンジンを構築する|うさみけんたさん(@tadsan)|[pixivFANBOX](https://tadsan.fanbox.cc/posts/6821011)|[Link](https://twitter.com/search?q=since%3A2023-10-08_10%3A50%3A00_JST+until%3A2023-10-08_11%3A15%3A00_JST+%23phpcon+%23track4&src=savs)|
 |11:20|readonly class で作る堅牢なアプリケーション|河瀨 翔吾さん(@shogogg)|[Speaker Deck](https://speakerdeck.com/shogogg/readonly-class-tezuo-rujian-lao-naahurikesiyon)|[Link](https://twitter.com/search?q=since%3A2023-10-08_11%3A20%3A00_JST+until%3A2023-10-08_11%3A45%3A00_JST+%23phpcon+%23track4&src=savs)|
 |12:40|良いテストとは何か:持続可能で保守性の高いテストを書く|当田 昇さん(@picopico_dev)|[Speaker Deck](https://speakerdeck.com/picopico/liang-itesutotohahe-ka-chi-sok-ke-neng-debao-shou-xing-nogao-itesutowoshu-ku)|[Link](https://twitter.com/search?q=since%3A2023-10-08_12%3A40%3A00_JST+until%3A2023-10-08_13%3A05%3A00_JST+%23phpcon+%23track4&src=savs)|
 |13:10|ユニットテスト環境整備～みんながテストを書ける環境へ～|堀川慶太さん|[Speaker Deck](https://speakerdeck.com/pagos/yunitutotesutohuan-jing-zheng-bei-minnagatesutowoshu-keruhuan-jing-he)|[Link](https://twitter.com/search?q=since%3A2023-10-08_13%3A10%3A00_JST+until%3A2023-10-08_13%3A35%3A00_JST+%23phpcon+%23track4&src=savs)|
