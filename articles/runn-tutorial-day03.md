@@ -21,7 +21,7 @@ runn is 何？という方は、以下に紹介記事を書いていますので
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
-チュートリアルを実際に試してみてもし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
+チュートリアルを実際に試してみても、し躓いた箇所がありましたら記事のコメントをして頂ければと思います。
 
 前日の記事は　「[Hello world!](https://zenn.dev/katzumi/articles/runn-tutorial-day02)」でした。
 

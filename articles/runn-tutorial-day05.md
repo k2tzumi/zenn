@@ -20,7 +20,7 @@ runn is 何？という方は、以下に紹介記事を書いていますので
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
-チュートリアルを実際に試してみてもし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
+チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
 
 前日の記事は　「[ステップに説明を付けてみる](https://zenn.dev/katzumi/articles/runn-tutorial-day04)」でした。
 
