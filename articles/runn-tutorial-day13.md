@@ -84,6 +84,6 @@ $ USER=katzumi runn run day13/include-with-vars.yml --debug
 includeとvarsの組み合わせで一つのrunbookがモジュールの様に扱えるのが理解頂けたかと思います。　　
 単体のrunbookなら `vars` と `bind` はそれほど使わなくてもいいと思いますが、共通化するrunbookは必要に応じてそれぞれ変数を定義して使いやすくしていきましょう！
 
-明日は「includeしたシナリオの変数を書き換えよう」です。
+明日は「include専用シナリオを活用する」です。
 
 https://zenn.dev/katzumi/articles/runn-tutorial-day14
