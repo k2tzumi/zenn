@@ -63,7 +63,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day02/hello_world.yml#L3-L4
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day02/hello_world.yml#L4
 
-`dump` は、dump runnerと呼ばれるもので自動で組み込みされるrunnerで、何も定義しなくても使えます。  
+`dump` は、Dump Runnerと呼ばれるもので自動で組み込みされるRunnerで、何も定義しなくても使えます。  
 こちらの指定された値を表示します。
 runbookがyamlで書く関係上、数値と文字列は区別して書く必要があり、`"'Hello world!'"` といった形でダブルコーテーションとシングルコーテーションを利用して文字列を表現しています。
 
