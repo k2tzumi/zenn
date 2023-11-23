@@ -109,6 +109,33 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day09/maps.yml#L33-L44
 
 map形式にすれば `previous` はほぼ使うことはありませんが、`current` はステップ名を変更した場合も影響を受けなくすることが出来るのでオススメです。
 
+最後にrunn実行時のオススメのオプションを紹介したいと思います。`--verbose` オプションです。
+
+* list形式の場合  
+    ```console
+    $ USER=katzumi runn run day09/lists.yml --verbose
+    === ステップに名前をつけてフローを追いやすくしましょう(listのままの場合) (day09/lists.yml) ... ok
+        --- 指定された件数分、記事一覧を取得します (0) ... ok
+        --- 1番目の記事の詳細を取得します (1) ... ok
+        --- 2番目の記事の詳細を取得します (2) ... ok
+
+
+    1 scenario, 0 skipped, 0 failures
+    ```
+* map形式の場合
+    ```console
+    $ USER=katzumi runn run day09/maps.yml --verbose 
+    === ステップに名前をつけてフローを追いやすくしましょう (day09/maps.yml) ... ok
+        --- 指定された件数分、記事一覧を取得します (listArticles) ... ok
+        --- 1番目の記事の詳細を取得します (showFirstArticle) ... ok
+        --- 2番目の記事の詳細を取得します (showSecondArticle) ... ok
+
+
+    1 scenario, 0 skipped, 0 failures
+    ```
+
+この様にステップの詳細及び結果を表示できます。
+比較するとmap形式の方がわかりやすいです！
 
 明日は「任意の値に別名をつける」です。
 

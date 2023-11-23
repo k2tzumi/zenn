@@ -38,6 +38,25 @@ https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 * include-with-vars.yml  
 前回のメインと同じものを今回用にブラッシュアップしたもの
 
+各runbookの依存関係がわかりやすいように先に実行結果を記述しておきます。
+
+```console
+$ USER=katzumi runn run day13/include-with-vars.yml --verbose
+=== includeしたシナリオの変数を変更して共通化させよう (day13/include-with-vars.yml) ... ok
+    --- 指定された件数分、記事一覧を取得します (listArticles) ... ok
+        === 単体のシナリオとして定義 (day13/list-articles.yml) ... ok
+            --- 指定された件数分、記事一覧を取得します (listArticles) ... ok
+    --- 1番目の記事の詳細を取得します (showFirstArticle) ... ok
+        === 変数を受け取るシナリオを定義 (day13/show-article.yml) ... ok
+            --- 記事の詳細を取得します (showArticle) ... ok
+    --- 2番目の記事の詳細を取得します (showSecondArticle) ... ok
+        === 変数を受け取るシナリオを定義 (day13/show-article.yml) ... ok
+            --- 記事の詳細を取得します (showArticle) ... ok
+
+
+1 scenario, 0 skipped, 0 failures
+```
+
 上から順番に説明していきます。
 
 :::details list-articles.ymlは前回と同じ

@@ -76,7 +76,7 @@ Skip include専用のシナリオを定義
 
 `1 skipped` になっており、スキップされていることがわかると思います。
 
-次に include-use-parent-vars.yml になります。
+次に include-use-parent-vars.yml を見ていきたいと思います。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day14/include-use-parent-vars.yml
 

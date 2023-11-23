@@ -206,7 +206,13 @@ Run "test" on "既存のシナリオから新しいシナリオを作成する".
 ```console
 $ USER=katzumi runn run day12/**/*.yml --verbose
 === 既存のシナリオから新しいシナリオを作成する (day12/include.yml) ... ok
+    --- 指定された件数分、記事一覧を取得します (listArticles) ... ok
+        === 単体のシナリオとして定義 (day12/list-articles.yml) ... ok
+            --- 指定された件数分、記事一覧を取得します (listArticles) ... ok
+    --- 1番目の記事の詳細を取得します (showFirstArticle) ... ok
+    --- 2番目の記事の詳細を取得します (showSecondArticle) ... ok
 === 単体のシナリオとして定義 (day12/list-articles.yml) ... ok
+    --- 指定された件数分、記事一覧を取得します (listArticles) ... ok
 
 
 2 scenarios, 0 skipped, 0 failures
@@ -214,6 +220,7 @@ $ USER=katzumi runn run day12/**/*.yml --verbose
 
 ちょっとパスが特殊な書き方ですが、 `day12/**/*.yml` とすることで `day12` ディレクトリ配下の（ネストも含む）のrunbookが対象となります。
 複数実行すると途中どこまで実行されたか分からなくなるので `--verbose` オプションを指定すると進捗がわかっていいです。
+includeしたシナリオもネストして表示されます。
 
 includeし過ぎはrunbookの依存関係が複雑になるので注意が必要ですが、効率よくシナリオを作成するには大変有効です。
 
