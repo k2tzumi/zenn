@@ -8,36 +8,36 @@ published_at: 2023-12-20 00:00
 ---
 
 :::message
-この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の12/20配信になります。
+この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/20 配信になります。
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートしてそろそろラストスパートです。  
-本記事はAPIシナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25日全部理解したら一人でrunnを使ってAPIシナリオテストや、ちょっとしたAPIと連携する自動化処理までをできるようになること目標にしています。  
+本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
+25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
 
-前日の記事は　「[外部コマンドを実行してみる](https://zenn.dev/katzumi/articles/runn-tutorial-day19)」でした。
+前日の記事は「[外部コマンドを実行してみる](https://zenn.dev/katzumi/articles/runn-tutorial-day19)」でした。
 
 ## DBに結果を格納する
 
-runnが対応しているデータベースは幾つかありますが、今回はSQLite3を使ってみます。
+runn が対応しているデータベースは幾つかありますが、今回は SQLite3 を使ってみます。
 
 前準備でスキーマ作成から行います。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/init-db.yml
 
-まずrunnersセクションから見ていきます
+まず runners セクションから見ていきます
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/init-db.yml#L2-L3
 
-`sq://` スキーマでSQLiteのファイルパスを指定します。
-`local`という名前でDB Runnerを定義しています。
+`sq://` スキーマで SQLite のファイルパスを指定します。
+`local` という名前で DB Runner を定義しています。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/init-db.yml#L7-L26
 
@@ -47,12 +47,12 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day20/init-db.yml#L7-L26
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/init-db.yml#L27-L34
 
 次のステップで作成したテーブルの確認をしています。
-`if: !included` でこちらのステップはinclude *されなかった* 場合にのみ実行されます。
+`if: !included` でこちらのステップは include *されなかった* 場合にのみ実行されます。
 
 `select * from sqlite_master;` でテーブル一覧を取得しています。
-testでは `one(current.rows, {.tbl_name == 'article'})` をチェックしています。
-コメントに記載していますが、テーブル一覧にarticleが含まれていることを確認しています。　　
-runnは式評価に [antonmedv/expr](https://github.com/antonmedv/expr) を利用しています。
+test では `one(current.rows, {.tbl_name == 'article'})` をチェックしています。
+コメントに記載していますが、テーブル一覧に article が含まれていることを確認しています。　　
+runn は式評価に [antonmedv/expr](https://github.com/antonmedv/expr) を利用しています。
 こちらの式評価で使える記法については [こちら](https://github.com/antonmedv/expr/blob/master/docs/Language-Definition.md) を参照してください。
 うまく使うとテスト内容を柔軟に定義することが出来るようになります。
 
@@ -64,8 +64,8 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day20/use-db.yml
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/use-db.yml#L9-L11
 
-こちらで先程のDB初期化がされます。
-includeの使い方は ["既存のシナリオから新しいシナリオを作成する"](https://zenn.dev/katzumi/articles/runn-tutorial-day12) を参照してください。
+こちらで先程の DB 初期化がされます。
+include の使い方は ["既存のシナリオから新しいシナリオを作成する"](https://zenn.dev/katzumi/articles/runn-tutorial-day12) を参照してください。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/use-db.yml#L12-L23
 
@@ -75,17 +75,17 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day20/use-db.yml#L12-L23
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/use-db.yml#L24-L43
 
 こちらが本記事のメインの処理となります。
-ループしながら、insert文を繰り返し実行しています。
-loopの使い方は ["繰り返し処理を行ってみよう"](https://zenn.dev/katzumi/articles/runn-tutorial-day11) を参照ください。
+ループしながら、insert 文を繰り返し実行しています。
+loop の使い方は ["繰り返し処理を行ってみよう"](https://zenn.dev/katzumi/articles/runn-tutorial-day11) を参照ください。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/use-db.yml#L39-L43
 
 テストの内容ですが
 
 * last_insert_id  
-最後にinsertされたレコードのID
+最後に insert されたレコードの ID
 * rows_affected  
-クエリ実行後の影響のあった行数。今回のINSERT文では1レコードづつ入れているので、1になります
+クエリ実行後の影響のあった行数。今回の INSERT 文では 1 レコードづつ入れているので、1 になります
 
 となります。
 
@@ -97,7 +97,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day20/use-db.yml#L44-L48
 
 こちらのクエリでいいね数を集計しています。
 `dump` で取得した内容を出力しています。
-こちらのクエリでは1行しかレコードが無いので `current.rows[0].sum_likes` という感じで集計結果が参照できます。
+こちらのクエリでは 1 行しかレコードが無いので `current.rows[0].sum_likes` という感じで集計結果が参照できます。
 
 最後に実行してみます。
 
@@ -117,13 +117,13 @@ $ USER=katzumi runn run day20/use-db.yml --verbose
 1 scenario, 0 skipped, 0 failures
 ```
 
-いいね数のTOTALが516なのがわかります。
+いいね数の TOTAL が 516 なのがわかります。
 `--debug` オプションの方がより動きがわかりやすいと思うので、ぜひ実行してみてください。
 
 如何でしたでしょうか？データベースを利用することで、複雑なシナリオを実現できるようになります。
-APIシナリオテストですが、全てのデータに対してAPIが提供されていなかったりする場合にこちらのデータベースへのアクセスは非常に有効になります。
-API呼び出し後に、正しくデータベースに格納されたか？ということもこちらを使えば実現できるようになります。
+API シナリオテストですが、全てのデータに対して API が提供されていなかったりする場合にこちらのデータベースへのアクセスは非常に有効になります。
+API 呼び出し後に、正しくデータベースに格納されたか？ということもこちらを使えば実現できるようになります。
 
-明日は「CDPを使ってブラウザ操作してみる」です。
+明日は「CDP を使ってブラウザ操作してみる」です。
 
 https://zenn.dev/katzumi/articles/runn-tutorial-day21

@@ -8,32 +8,32 @@ published_at: 2023-12-12 00:00
 ---
 
 :::message
-この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の12/12配信になります。
+この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/12 配信になります。
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートして前半戦を終えようとしています。  
-本記事はAPIシナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25日全部理解したら一人でrunnを使ってAPIシナリオテストや、ちょっとしたAPIと連携する自動化処理までをできるようになること目標にしています。  
+本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
+25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
 
-前日の記事は　「[繰り返し処理を行ってみよう](https://zenn.dev/katzumi/articles/runn-tutorial-day11)」でした。
+前日の記事は「[繰り返し処理を行ってみよう](https://zenn.dev/katzumi/articles/runn-tutorial-day11)」でした。
 
 ## 既存のシナリオから新しいシナリオを作成する
 
 [昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day11) でステップを繰り返し実行できるようになりました。 
 ここまでのチュートリアルで、ステップバイステップでシナリオを育てていった感じでした。
 
-個人的にはunnの真骨頂だと思っている、発展的なシナリオ定義方法について説明をしていきたいと思います。
+個人的には unn の真骨頂だと思っている、発展的なシナリオ定義方法について説明をしていきたいと思います。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day12/list-articles.yml
 
-まずはこちらのrunbookから。
+まずはこちらの runbook から。
 特に以前の内容と変わりません。
 前回までの記事の中で一番利用したステップです。こちらのステップを切り出した形です。
 
@@ -46,7 +46,7 @@ $  % USER=katzumi runn run day12/list-articles.yml
 1 scenario, 0 skipped, 0 failures
 ```
 
-次にこちらのrunbookを利用して新しいシナリオを作成します。
+次にこちらの runbook を利用して新しいシナリオを作成します。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day12/include.yml
 
@@ -56,24 +56,24 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day12/include.yml
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day12/include.yml#L5-L7
 
-`include` セクションで既存のrunbookのパスを指定するだけです。
+`include` セクションで既存の runbook のパスを指定するだけです。
 これで `list-articles.yml` のシナリオ内容の続きから新しいステップを足して新しいシナリオが出来るようになります。
 
-includeを使った場合の注意として、後続のステップではそのままinclude内のステップの結果を参照できないということです。
+include を使った場合の注意として、後続のステップではそのまま include 内のステップの結果を参照できないということです。
 
-ここで重要になるのが、include先の
+ここで重要になるのが、include 先の
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day12/list-articles.yml#L21-L22
 
-こちらのbindです。
-こちらのbindしたものが参照できます。
-bindの使い方については ["任意の値に別名をつける"](https://zenn.dev/katzumi/articles/runn-tutorial-day10) をご参照ください。
+こちらの bind です。
+こちらの bind したものが参照できます。
+bind の使い方については ["任意の値に別名をつける"](https://zenn.dev/katzumi/articles/runn-tutorial-day10) をご参照ください。
 
-include先のbindしたものを参照している2ステップ目（showFirstArticleステップ）
+include 先の bind したものを参照している 2 ステップ目（showFirstArticle ステップ）
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day12/include.yml#L8-L19
 
-includeした場合の値の参照方法は以下のように変わります。
+include した場合の値の参照方法は以下のように変わります。
 
 |内容|変更前|変更後|
 |---|---|---|
@@ -82,12 +82,12 @@ includeした場合の値の参照方法は以下のように変わります。
 
 `steps.ステップ名.bindした別名` で参照出来るようになります。
 
-3ステップ目（showSecondArticleステップ）も同じです。
+3 ステップ目（showSecondArticle ステップ）も同じです。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day12/include.yml#L20-L31
 
-includeを使うことでステップの共通化することが出来ます。
-またincludeを行ったrunbookも他のrunbookからincludeができます。
+include を使うことでステップの共通化することが出来ます。
+また include を行った runbook も他の runbook から include ができます。
 要は数珠つなぎにシナリオを作成することが出来ます！
 
 実際に実行できるか？確認してみます。
@@ -201,7 +201,7 @@ Run "test" on "既存のシナリオから新しいシナリオを作成する".
 ```
 :::
 
-今回2つのrunbookがあるので同時にテストを行う場合は以下のコマンドになります。
+今回 2 つの runbook があるので同時にテストを行う場合は以下のコマンドになります。
 
 ```console
 $ USER=katzumi runn run day12/**/*.yml --verbose
@@ -218,12 +218,12 @@ $ USER=katzumi runn run day12/**/*.yml --verbose
 2 scenarios, 0 skipped, 0 failures
 ```
 
-ちょっとパスが特殊な書き方ですが、 `day12/**/*.yml` とすることで `day12` ディレクトリ配下の（ネストも含む）のrunbookが対象となります。
+ちょっとパスが特殊な書き方ですが、 `day12/**/*.yml` とすることで `day12` ディレクトリ配下の（ネストも含む）の runbook が対象となります。
 複数実行すると途中どこまで実行されたか分からなくなるので `--verbose` オプションを指定すると進捗がわかっていいです。
-includeしたシナリオもネストして表示されます。
+include したシナリオもネストして表示されます。
 
-includeし過ぎはrunbookの依存関係が複雑になるので注意が必要ですが、効率よくシナリオを作成するには大変有効です。
+include し過ぎは runbook の依存関係が複雑になるので注意が必要ですが、効率よくシナリオを作成するには大変有効です。
 
-明日は「includeしたシナリオの変数を書き換えよう」です。
+明日は「include したシナリオの変数を書き換えよう」です。
 
 https://zenn.dev/katzumi/articles/runn-tutorial-day13

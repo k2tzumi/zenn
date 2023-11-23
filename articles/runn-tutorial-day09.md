@@ -8,36 +8,36 @@ published_at: 2023-12-09 00:00
 ---
 
 :::message
-この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の12/09配信になります。
+この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/09 配信になります。
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートしていました。  
-本記事はAPIシナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25日全部理解したら一人でrunnを使ってAPIシナリオテストや、ちょっとしたAPIと連携する自動化処理までをできるようになること目標にしています。  
+本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
+25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
 
-前日の記事は　「[リクエストの結果を次のステップで利用してみる](https://zenn.dev/katzumi/articles/runn-tutorial-day08)」でした。
+前日の記事は「[リクエストの結果を次のステップで利用してみる](https://zenn.dev/katzumi/articles/runn-tutorial-day08)」でした。
 
 ## ステップに名前を付ける
 
-[昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day08) で2つのステップを定義してAPIを組み合わせたテストを行えるようになりました。 
+[昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day08) で 2 つのステップを定義して API を組み合わせたテストを行えるようになりました。 
 
-今回はもっと複雑に3ステップ以上のシナリオを書いていきたいと思います。
+今回はもっと複雑に 3 ステップ以上のシナリオを書いていきたいと思います。
 
 ### listのままの場合
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/lists.yml
 
-長いので1stビューに収まらない。。
+長いので 1st ビューに収まらない。。
 
-1ステップ目はまったく同じです。
-2ステップ目から見ていきましょう。
+1 ステップ目はまったく同じです。
+2 ステップ目から見ていきましょう。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/lists.yml#L20-L30
 
@@ -60,12 +60,12 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day09/lists.yml#L20-L30
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/lists.yml#L31-L41
 
-3ステップ目はこちらになります。
-`steps[2]` という変数が現れましたが、3ステップ目を表しているのがわかると思います。
-`steps[2]` から参照すると一つ前（ `previous` ）が `steps[1]` になります。
-実は`current`と`previous`はこの `steps[ステップ番号]` のalias(別名)になっています。
+3 ステップ目はこちらになります。
+`steps[2]` という変数が現れましたが、3 ステップ目を表しているのがわかると思います。
+`steps[2]` から参照すると1つ前（`previous`）が `steps[1]` になります。
+実は `current` と `previous` はこの `steps[ステップ番号]` の alias(別名)になっています。
 
-前回までは2ステップしかなかったので、問題なかったのですが3ステップ目になると単純に一つ前だけでなく2つ、3つ前も参照したくなります。
+前回までは 2 ステップしかなかったので、問題なかったのですが 3 ステップ目になると単純に1つ前だけでなく 2 つ、3 つ前も参照したくなります。
 その場合にステップ番号でのアクセスする方法では大変です。ステップ番号を覚えるのも大変ですし、途中でステップの追加も発生する可能性もあります。
 
 ということで本題にあるステップの名前をつけたくなります。
@@ -76,15 +76,15 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day09/lists.yml#L31-L41
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/maps.yml
 
-yamlのstepsセクションの書き方がlistからmapに変わっているのがわかると思います。
+yaml の steps セクションの書き方が list から map に変わっているのがわかると思います。
 
-1つ目のステップ
+1 つ目のステップ
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/maps.yml#L9-L20
 
 `listArticles` というステップ名にしています。
 
-2つ目のステップ
+2 つ目のステップ
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/maps.yml#L21-L32
 
@@ -97,21 +97,21 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day09/maps.yml#L21-L32
 |1番目のステップの1番目の記事のID|`steps[0].res.body.articles[0].id`|`steps.listArticles.res.body.articles[0].id`|
 
 `steps[ステップ番号]` という記述よりもだいぶ可読性が上がったのでは無いでしょうか？
-雑にrunbookを作成する場合は今まで通りlist形式で作成するのが早いですが、メンテナンスし続けるシナリオであればmap形式1択です。
+雑に runbook を作成する場合は今まで通り list 形式で作成するのが早いですが、メンテナンスし続けるシナリオであれば map 形式 1 択です。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/maps.yml#L33-L44
 
-3ステップ目です。
+3 ステップ目です。
 こちらはもう既に説明不要かと思います。
 説明の為に冗長に記載していますが、
 
 `steps.showSecondArticle.res.body.article.id` の部分は今まで通り `current.res.body.article.id` としたほうがわかりやすいです。
 
-map形式にすれば `previous` はほぼ使うことはありませんが、`current` はステップ名を変更した場合も影響を受けなくすることが出来るのでオススメです。
+map 形式にすれば `previous` はほぼ使うことはありませんが、`current` はステップ名を変更した場合も影響を受けなくすることが出来るのでオススメです。
 
-最後にrunn実行時のオススメのオプションを紹介したいと思います。`--verbose` オプションです。
+最後に runn 実行時のオススメのオプションを紹介したいと思います。`--verbose` オプションです。
 
-* list形式の場合  
+* list 形式の場合  
     ```console
     $ USER=katzumi runn run day09/lists.yml --verbose
     === ステップに名前をつけてフローを追いやすくしましょう(listのままの場合) (day09/lists.yml) ... ok
@@ -122,7 +122,7 @@ map形式にすれば `previous` はほぼ使うことはありませんが、`c
 
     1 scenario, 0 skipped, 0 failures
     ```
-* map形式の場合
+* map 形式の場合
     ```console
     $ USER=katzumi runn run day09/maps.yml --verbose 
     === ステップに名前をつけてフローを追いやすくしましょう (day09/maps.yml) ... ok
@@ -135,7 +135,7 @@ map形式にすれば `previous` はほぼ使うことはありませんが、`c
     ```
 
 この様にステップの詳細及び結果を表示できます。
-比較するとmap形式の方がわかりやすいです！
+比較すると map 形式の方がわかりやすいです！
 
 明日は「任意の値に別名をつける」です。
 

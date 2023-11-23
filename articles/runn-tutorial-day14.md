@@ -8,28 +8,28 @@ published_at: 2023-12-14 00:00
 ---
 
 :::message
-この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の12/14配信になります。
+この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/14 配信になります。
 :::
 
 ## はじめに
 
-一人アドベントカレンダーとしスタートして2週間経ちました。  
-本記事はAPIシナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25日全部理解したら一人でrunnを使ってAPIシナリオテストや、ちょっとしたAPIと連携する自動化処理までをできるようになること目標にしています。  
+一人アドベントカレンダーとしスタートして 2 週間経ちました。  
+本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
+25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
 
-前日の記事は　「[includeしたシナリオの変数を書き換えよう](https://zenn.dev/katzumi/articles/runn-tutorial-day13)」でした。
+前日の記事は「[includeしたシナリオの変数を書き換えよう](https://zenn.dev/katzumi/articles/runn-tutorial-day13)」でした。
 
 ## include専用シナリオを活用する
 
-[昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day13) でincludeするシナリオに引数を与えることができるようになりました。 
+[昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day13) で include するシナリオに引数を与えることができるようになりました。 
 今回は更に便利に引数を引き継ぐ方法を紹介したいと思います。
 
-今回は3つのrunbookを利用します。
+今回は 3 つの runbook を利用します。
 
 * show-article.yml  
 前回と同じ
@@ -40,28 +40,28 @@ https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 上から順番に説明していきます。
 
-:::details show-article.ymlは前回と同じ
+:::details show-article.yml は前回と同じ
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day14/show-article.yml
 
 :::
 
-次にinclude-list-articles.ymlです
+次に include-list-articles.yml です
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day14/include-list-articles.yml
 
-varsセクションの値が `{{ parent.vars.username }}` となっています。
+vars セクションの値が `{{ parent.vars.username }}` となっています。
 今回の肝はこちらの記述方法になります。
 
-こちらの記述にするとinclude元のvarsにアクセスすることが出来ます。
-柔軟度は高くなりますが、こちらの記述を使うことでinclude専用のシナリオ（runbook）になります。
-includeしないと `parent` にアクセスできない為です。
+こちらの記述にすると include 元の vars にアクセスすることが出来ます。
+柔軟度は高くなりますが、こちらの記述を使うことで include 専用のシナリオ（runbook）になります。
+include しないと `parent` にアクセスできない為です。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day14/include-list-articles.yml#L8
 
-include専用のrunbookにはこちらの記述が必要になります。
-こちらの `if` セクションは、runbookの実行条件を定義できます。
-`included` は includeされたrunbook上ではtrueになります。つまり、include時のみに実行できます。
+include 専用の runbook にはこちらの記述が必要になります。
+こちらの `if` セクションは、runbook の実行条件を定義できます。
+`included` は include された runbook 上では true になります。つまり、include 時のみに実行できます。
 
 実際に実行してみます。
 
@@ -80,11 +80,11 @@ Skip include専用のシナリオを定義
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day14/include-use-parent-vars.yml
 
-違いはvarsセクションの追加のみです、
-でもこちらのrunbook内には記述はありませんが、include時にvarsを指定しなくても引き継ぐことが出来ています。
-include時にvarsを上書きするには前回の ["includeしたシナリオの変数を書き換えよう"](https://zenn.dev/katzumi/articles/runn-tutorial-day13) を参照ください。
+違いは vars セクションの追加のみです、
+でもこちらの runbook 内には記述はありませんが、include 時に vars を指定しなくても引き継ぐことが出来ています。
+include 時に vars を上書きするには前回の ["includeしたシナリオの変数を書き換えよう"](https://zenn.dev/katzumi/articles/runn-tutorial-day13) を参照ください。
 
-include専用のrunbookを用意することでカスケード的に引数を引き継ぐことができる様になります。
+include 専用の runbook を用意することでカスケード的に引数を引き継ぐことができる様になります。
 
 全体実行させてみると以下のような感じになります。
 
@@ -109,6 +109,6 @@ $ runn run day14/**/*.yml --verbose
 3 scenarios, 1 skipped, 0 failures
 ```
 
-明日は「リクエストJSONを外部ファイル化する」です。
+明日は「リクエスト JSON を外部ファイル化する」です。
 
 https://zenn.dev/katzumi/articles/runn-tutorial-day15

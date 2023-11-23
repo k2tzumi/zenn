@@ -8,26 +8,26 @@ published_at: 2023-12-17 00:00
 ---
 
 :::message
-この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の12/17配信になります。
+この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/17 配信になります。
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートして絶賛掲載中です。  
-本記事はAPIシナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25日全部理解したら一人でrunnを使ってAPIシナリオテストや、ちょっとしたAPIと連携する自動化処理までをできるようになること目標にしています。  
+本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
+25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
 
-前日の記事は　「[JSONファイルにパラメータ埋め込みをしてみる](https://zenn.dev/katzumi/articles/runn-tutorial-day16)」でした。
+前日の記事は「[JSONファイルにパラメータ埋め込みをしてみる](https://zenn.dev/katzumi/articles/runn-tutorial-day16)」でした。
 
 ## レスポンスをdumpして外部JSON化する
 
-[昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day16) でリクエストのJSONにパラメータを埋め込む様にできました。 
-今回は、リクエストだけでなくレスポンスをJSON化させる方法を紹介したいと思います。
+[昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day16) でリクエストの JSON にパラメータを埋め込む様にできました。 
+今回は、リクエストだけでなくレスポンスを JSON 化させる方法を紹介したいと思います。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day17/dump-out.yml
 
@@ -35,13 +35,13 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day17/dump-out.yml
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day17/dump-out.yml#L21-L23
 
-久しぶりに出てきましたDump Runnerです。
+久しぶりに出てきました Dump Runner です。
 （前回は ["Hello world!"](https://zenn.dev/katzumi/articles/runn-tutorial-day02) でした）
 
-前回は1行に記載して標準出力されていましたが、今回は `expr` と `out` に分かれています。
+前回は 1 行に記載して標準出力されていましたが、今回は `expr` と `out` に分かれています。
 `expr` は評価したい値を記載し、`out` には評価した値を保存するパスを相対パスで指定させます。
 
-jsonの出力が終わったら、以下のようにrunbookを書き換えます
+json の出力が終わったら、以下のように runbook を書き換えます
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day17/dump-and-verify.yml
 
@@ -49,15 +49,15 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day17/dump-and-verify.yml
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day17/dump-and-verify.yml#L8
 
-でレスポンスをJSONを読み込んでいます。
-JSONファイルの読み込みについては ["リクエストJSONを外部ファイル化する"](https://zenn.dev/katzumi/articles/runn-tutorial-day15) を参照ください。
+でレスポンスを JSON を読み込んでいます。
+JSON ファイルの読み込みについては ["リクエストJSONを外部ファイル化する"](https://zenn.dev/katzumi/articles/runn-tutorial-day15) を参照ください。
 
-次にdumpを削除したかわりに
+次に dump を削除したかわりに
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day17/dump-and-verify.yml#L22-L23
 
-testの条件を追加しています。
-こちらの内容でJSONのファイルの内容とレスポンスBODYを比較することが出来ます。
+test の条件を追加しています。
+こちらの内容で JSON のファイルの内容とレスポンス BODY を比較することが出来ます。
 
 実際に動作させてみましょう。
 
@@ -88,9 +88,9 @@ $  USER=katzumi runn run day17/dump-and-verify.yml --verbose
 ```
 
 エラーになりました。
-前回取得していたJSONから何か結果が変わったようです。
+前回取得していた JSON から何か結果が変わったようです。
 
-JSONを再取得して実行し直してみました。
+JSON を再取得して実行し直してみました。
 
 ```console
 $  USER=katzumi runn run day17/dump-out.yml --verbose 
@@ -107,7 +107,7 @@ $  USER=katzumi runn run day17/dump-and-verify.yml --verbose
 1 scenario, 0 skipped, 0 failures
 ```
 
-今度は2つとも成功しました。
+今度は 2 つとも成功しました。
 
 更新された articles.json を確認してみると
 
@@ -128,13 +128,13 @@ index abe4a9e..9eca829 100644
        "post_type": "Article",
 ```
 
-`liked_count` が2つ増えていたようです。
+`liked_count` が 2 つ増えていたようです。
 
-如何でしたでしょうか？レスポンスもJSON化して比較することが出来ました。
-本記事で紹介した形でJSONをテストに組み込むことができれば、前回のレスポンス結果から内容が変わった場合にすぐに気づくことが出来ます。
-この様なテストはGolden Testと呼ばれます。APIのデグレに気づく事ができますので、テクニックとして覚えておくと良いでしょう。
+如何でしたでしょうか？レスポンスも JSON 化して比較することが出来ました。
+本記事で紹介した形で JSON をテストに組み込むことができれば、前回のレスポンス結果から内容が変わった場合にすぐに気づくことが出来ます。
+この様なテストは Golden Test と呼ばれます。API のデグレに気づく事ができますので、テクニックとして覚えておくと良いでしょう。
 
 
-明日は「OpenAPIの仕様書通りか？テストする」です。
+明日は「OpenAPI の仕様書通りか？テストする」です。
 
 https://zenn.dev/katzumi/articles/runn-tutorial-day18

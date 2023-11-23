@@ -8,35 +8,35 @@ published_at: 2023-12-04 00:00
 ---
 
 :::message
-この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の12/04配信になります。
+この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/04 配信になります。
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートしていました。  
-本記事はAPIシナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25日全部理解したら一人でrunnを使ってAPIシナリオテストや、ちょっとしたAPIと連携する自動化処理までをできるようになること目標にしています。  
+本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
+25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
 
-前日の記事は　「[curlコマンドをreplayさせる](https://zenn.dev/katzumi/articles/runn-tutorial-day03)」でした。
+前日の記事は「[curlコマンドをreplayさせる](https://zenn.dev/katzumi/articles/runn-tutorial-day03)」でした。
 
 ## ステップに説明を付けてみる
 
-[昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day03) でcURLのコマンドをruunのシナリオに変換することを行いました。 
-ただそのままだと何のAPIを呼び出しているのか？人にはわかりません。
+[昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day03) で cURL のコマンドを ruun のシナリオに変換することを行いました。 
+ただそのままだと何の API を呼び出しているのか？人にはわかりません。
 シナリオを文章化する意味でもステップに説明をつけていきましょう。
 
-前回のrunbookは長いので一部割愛してシンプル化も合わせてします。
+前回の runbook は長いので一部割愛してシンプル化も合わせてします。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day04/desc.yml
 
-runbook全体の他にステップ内にも `desc` セクションで説明を追加することが出来ます。
+runbook 全体の他にステップ内にも `desc` セクションで説明を追加することが出来ます。
 これでぐっと読みやすくなると思います。
-こちらの説明はdebug実行時にも出力され、何をやっているのか？わかりやすくなり、エラー発生時にもステップを特定しやすくなります。
+こちらの説明は debug 実行時にも出力され、何をやっているのか？わかりやすくなり、エラー発生時にもステップを特定しやすくなります。
 
 ```console
 $ runn run day04/desc.yml --debug             
@@ -76,35 +76,35 @@ User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (
 
 ## 前日のおさらい
 
-前回の記事では出力されたrunbookの説明を割愛してしまったので、シンプルになったrunbookで説明をします。
+前回の記事では出力された runbook の説明を割愛してしまったので、シンプルになった runbook で説明をします。
 
 最初に `runners` というセクションが増えていると思います。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day04/desc.yml#L2-L3
 
-こちらのセクションではrunbook内で実行する各種Runnerの定義を行います。  
+こちらのセクションでは runbook 内で実行する各種 Runner の定義を行います。  
 こちらの `req` という名前で定義されているものが HTTP Runner になります。`http://` と `https://` のプロトコル名から始める必要があります。  
-後日触れますが、http以外のプロトコルのRunnerが幾つか用意されています。
-こちらのセクションでそれらのRunnerの名前とオプションを定義する箇所だと覚えておいて貰えればOKです。
+後日触れますが、http 以外のプロトコルの Runner が幾つか用意されています。
+こちらのセクションでそれらの Runner の名前とオプションを定義する箇所だと覚えておいて貰えれば OK です。
 
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day04/desc.yml#L6-L10
 
 次にリクエストを送信している部分になります。
-こちらの `req` は先程の説明の `runners` セクションで定義されたRunnerの名前になります。
-今回は、 `req` のエンドポイントが `https://zenn.dev` になっており、こちらのRunnerを使ったアクセスはすべて　`https://zenn.dev` へのリクエストとなります。
+こちらの `req` は先程の説明の `runners` セクションで定義された Runner の名前になります。
+今回は、 `req` のエンドポイントが `https://zenn.dev` になっており、こちらの Runner を使ったアクセスはすべて　`https://zenn.dev` へのリクエストとなります。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day04/desc.yml#L7
 
-`req` （Runnerセクション）の次の階層に指定するのがリクエストのパスになります。
+`req`（Runner セクション）の次の階層に指定するのがリクエストのパスになります。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day04/desc.yml#L8
 
-リクエストパスの下の階層が　HTTPリクエストのメソッドを指定します。こちらが `get` になっており、今回はGETメソッドでリクエストすることになります。
+リクエストパスの下の階層が　HTTP リクエストのメソッドを指定します。こちらが `get` になっており、今回は GET メソッドでリクエストすることになります。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day04/desc.yml#L9-L10
 
-HTTPメソッドの下の改装にリクエスト内容を定義します。今回はrequest bodyを指定しています。
+HTTP メソッドの下の改装にリクエスト内容を定義します。今回は request body を指定しています。
 
 :::details リクエストヘッダーも定義できます。
 
@@ -112,7 +112,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day03/curl.yml#L8-L23
 
 :::
 
-HTTP通信の理解があれば、説明がなくても直感的に理解できると思います。
+HTTP 通信の理解があれば、説明がなくても直感的に理解できると思います。
 
 
 明日は「変数を使ってみる」です。

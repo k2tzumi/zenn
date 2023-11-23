@@ -8,29 +8,29 @@ published_at: 2023-12-08 00:00
 ---
 
 :::message
-この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の12/08配信になります。
+この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/08 配信になります。
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートしていました。  
-本記事はAPIシナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25日全部理解したら一人でrunnを使ってAPIシナリオテストや、ちょっとしたAPIと連携する自動化処理までをできるようになること目標にしています。  
+本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
+25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
 
-前日の記事は　「[レスポンスの結果を検証してみる](https://zenn.dev/katzumi/articles/runn-tutorial-day07)」でした。
+前日の記事は「[レスポンスの結果を検証してみる](https://zenn.dev/katzumi/articles/runn-tutorial-day07)」でした。
 
 ## リクエストの結果を次のステップで利用してみる
 
 [昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day07) でレスポンス結果の参照及び検証を行う方法について説明しました。 
-一つのエンドポイントに対して呼び出しと検証ができるようになったと思います。
+1つのエンドポイントに対して呼び出しと検証ができるようになったと思います。
 ここからよりシナリオテストっぽくしていきたいと思います。
 
-今までの内容ではステップが一つのみでしたが、今回始めて複数ステップになります。
+今までの内容ではステップが1つのみでしたが、今回始めて複数ステップになります。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day08/previous.yml
 
@@ -39,7 +39,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day08/previous.yml
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day08/previous.yml#L9-L19
 
-一番目のステップです。
+1番目のステップです。
 ここは前回と変わりません。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day08/previous.yml#L20-L30
@@ -51,19 +51,19 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day08/previous.yml#L20-L30
 https://github.com/k2tzumi/runn-tutorial/blob/main/day08/previous.yml#L22
 
 `{{}}` の部分で変数展開されているのがわかると思います。
-以前の ["変数を使ってみる"](http://localhost:8000/articles/runn-tutorial-day05)での説明や今回の1番目のステップの様に `vars.変数名` ではなく `previous.resp.body` という参照になっているかと思います。
+以前の ["変数を使ってみる"](http://localhost:8000/articles/runn-tutorial-day05)での説明や今回の 1 番目のステップの様に `vars.変数名` ではなく `previous.resp.body` という参照になっているかと思います。
 ["レスポンスの結果を検証してみる"](http://localhost:8000/articles/runn-tutorial-day07) で説明した `current.res.body` と近い記述になっているかと思います。
 違いは `current` が `previous` になっているだけです。
-`previous` は一つ前のステップを表すものになります。逆に？ `current` が現在のステップを表すものになります。
-これらはrunnが自動的に作成する変数となります。
+`previous` は1つ前のステップを表すものになります。逆に？ `current` が現在のステップを表すものになります。
+これらは runn が自動的に作成する変数となります。
 
-今回のケースでは `previous.res.body.articles[0].slug` となっており、記事一覧取得のレスポンスで一番目の記事（配列は0から始まります）のslugにアクセスしています。
-`slug` はJSONのキーの名前ですが、一般的にはURLのパスの一部になります。
+今回のケースでは `previous.res.body.articles[0].slug` となっており、記事一覧取得のレスポンスで1番目の記事（配列は 0 から始まります）の slug にアクセスしています。
+`slug` は JSON のキーの名前ですが、一般的には URL のパスの一部になります。
 
 https://developer.mozilla.org/ja/docs/Glossary/Slug
 
-動きを理解する為に実際にdebug実行させてみましょう。
-今回は変数でcoutは1件のみに絞っています。
+動きを理解する為に実際に debug 実行させてみましょう。
+今回は変数で cout は 1 件のみに絞っています。
 
 ```console
 % USER=katzumi runn run day08/previous.yml --debug
@@ -119,7 +119,7 @@ Run "test" on "次のステップで一つ前のレスポンスを引き継い�
 1 scenario, 0 skipped, 0 failures
 ```
 
-1ステップ目のレスポンスのJSONを整形すると以下の様になっていました。
+1 ステップ目のレスポンスの JSON を整形すると以下の様になっていました。
 
 ```json
 {
@@ -154,7 +154,7 @@ Run "test" on "次のステップで一つ前のレスポンスを引き継い�
 ```
 
 こちらの `slug` が `api-scenario-testing-with-runn` となっています。
-こちらの変数が展開されており2件目のステップが
+こちらの変数が展開されており 2 件目のステップが
 
 ```console
 Run "記事の詳細を取得します" on "次のステップで一つ前のレスポンスを引き継いでみよう".steps[1]
@@ -165,25 +165,25 @@ Content-Type: application/json
 ```
 
 上記のようなアクセスになっています。
-ステップが分かれるとdescで指定した内容がでるのでわかりやすくなると思います。descの書き方は ["ステップに説明を付けてみる"](https://zenn.dev/katzumi/articles/runn-tutorial-day04) を参照ください。
+ステップが分かれると desc で指定した内容がでるのでわかりやすくなると思います。desc の書き方は ["ステップに説明を付けてみる"](https://zenn.dev/katzumi/articles/runn-tutorial-day04) を参照ください。
 
-こちらの一連のステップで記事一覧から1番目の記事の詳細を取得するというシナリオが実現できています。
+こちらの一連のステップで記事一覧から 1 番目の記事の詳細を取得するというシナリオが実現できています。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day08/previous.yml#L26-L30
 
 最後にテストも見てみましょう。
 ここでも `previous` を利用します。
-記事の詳細はslugでアクセスしていますが、テストではidの比較を行っています。
+記事の詳細は slug でアクセスしていますが、テストでは id の比較を行っています。
 
 * `current.res.body.article.id` 
-現在のステップの記事のID
+現在のステップの記事の ID
 * `previous.res.body.articles[0].id`  
-前回のステップ（記事一覧取得）の記事リストの最初の記事のID（記事詳細取得時のID）
+前回のステップ（記事一覧取得）の記事リストの最初の記事の ID（記事詳細取得時の ID）
 
 という意味になります。
 こうすることでより厳密なテストになることでしょう。
 
-如何でしたでしょうか？複数のエンドポイントのAPIを組み合わせてのテストが非常に簡単に行えることが理解頂けたことと思います！
+如何でしたでしょうか？複数のエンドポイントの API を組み合わせてのテストが非常に簡単に行えることが理解頂けたことと思います！
 
 明日以降ももっと便利に使えるになるチュートリアルをご紹介しますのでお楽しみに
 

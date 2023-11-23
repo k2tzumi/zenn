@@ -8,14 +8,14 @@ published_at: 2023-12-01 00:00
 ---
 
 :::message
-この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の12/01配信になります。
+この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/01 配信になります。
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートします。  
-本記事はAPIシナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25日全部理解したら一人でrunnを使ってAPIシナリオテストや、ちょっとしたAPIと連携する自動化処理までをできるようになること目標にしています。  
+本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
+25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
@@ -26,7 +26,7 @@ https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 ## runnをインストールしてみよう
 
-runnはgolangで書かれたCLIツールなっており、導入は簡単です。
+runn は golang で書かれた CLI ツールなっており、導入は簡単です。
 インストール方法はいくつかありますが、代表的なものだと以下の様になります
 
 

@@ -8,43 +8,43 @@ published_at: 2023-12-18 00:00
 ---
 
 :::message
-この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の12/18配信になります。
+この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/18 配信になります。
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートして絶賛掲載中です。  
-本記事はAPIシナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25日全部理解したら一人でrunnを使ってAPIシナリオテストや、ちょっとしたAPIと連携する自動化処理までをできるようになること目標にしています。  
+本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
+25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
 
-前日の記事は　「[レスポンスをdumpして外部JSON化する](https://zenn.dev/katzumi/articles/runn-tutorial-day17)」でした。
+前日の記事は「[レスポンスをdumpして外部JSON化する](https://zenn.dev/katzumi/articles/runn-tutorial-day17)」でした。
 
 ## OpenAPIの仕様書通りか？テストする
 
-今までのチュートリアルでAPIのリクエストと期待値となるレスポンスはrunbookの作成者が妥当性をチェックする必要がありました。
-今回はAPIのインターフェースの品質の向上に有効な機能を紹介します。
+今までのチュートリアルで API のリクエストと期待値となるレスポンスは runbook の作成者が妥当性をチェックする必要がありました。
+今回は API のインターフェースの品質の向上に有効な機能を紹介します。
 
-今回は以下のAPIをテストしてみたいと思います。サンプルのpetstoreのAPIですね。
+今回は以下の API をテストしてみたいと思います。サンプルの petstore の API ですね。
 
 https://petstore3.swagger.io/
 
-こちらをテストするrunbookはこちら。
+こちらをテストする runbook はこちら。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day18/open-api-fail.yml
 
-ステータスを指定してペット一覧を取得するAPIのテストになります。
+ステータスを指定してペット一覧を取得する API のテストになります。
 
 今回のチュートリアルの肝はこちらです。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day18/open-api-fail.yml#L3-L7
 
 `openapi3` というパラメータを指定しています。
-こちらにはOpenAPIの定義ファイルを指定させます。
+こちらには OpenAPI の定義ファイルを指定させます。
 
 実行させてみます。
 
@@ -82,10 +82,10 @@ $ runn run day18/open-api-fail.yml --verbose
 
 > openapi3 validation error: parameter "status" in query has an error: value is not one of the allowed values ["available","pending","sold"]
 
-`status`パラメータに誤りがあるようです。
-`avaliable` とtypoしていました。`available` が正しいようです。
+`status` パラメータに誤りがあるようです。
+`avaliable` と typo していました。`available` が正しいようです。
 
-この様にOpenAPIの定義ファイルを指定しておくと、リクエスト方法に誤りがあった場合にリクエスト前に気づくことが出来ます。
+この様に OpenAPI の定義ファイルを指定しておくと、リクエスト方法に誤りがあった場合にリクエスト前に気づくことが出来ます。
 またレスポンスも自動的にチェックされます。
 
 間違いに気づいたので、直します。
@@ -101,9 +101,9 @@ $ runn run day18/open-api.yml --verbose
 1 scenario, 0 skipped, 0 failures
 ```
 
-今度はOKになりました。
+今度は OK になりました。
 
-こちらのOpenAPIの仕様書を指定すると非常に品質の高いテストが行なえますが、敢えてリクエスト異常なテストを行いたいケースがあると思います。
+こちらの OpenAPI の仕様書を指定すると非常に品質の高いテストが行なえますが、敢えてリクエスト異常なテストを行いたいケースがあると思います。
 この様にします。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day18/open-api-bad-request.yml
@@ -112,7 +112,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day18/open-api-bad-request.ym
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day18/open-api-bad-request.yml#L6
 
-こうすると、リクエストのvalidationがスキップされます。
+こうすると、リクエストの validation がスキップされます。
 
 :::details 実行結果
 
@@ -147,9 +147,9 @@ Run "test" on "OpenAPIのSpecを参照し、Bad Requestのテストを行う場�
 :::
 
 
-OpenAPIの仕様書が存在するAPIをテストする際に、設定は必須だと感じています。
-このAPI仕様書のリクエストとレスポンスが仕様書通りになっているか？というのはAPIの品質を担保する上で重要かと思います。
-筆者はこちらの機能によって、APIの仕様バグを幾つか気づくことが何回かありました。 
+OpenAPI の仕様書が存在する API をテストする際に、設定は必須だと感じています。
+この API 仕様書のリクエストとレスポンスが仕様書通りになっているか？というのは API の品質を担保する上で重要かと思います。
+筆者はこちらの機能によって、API の仕様バグを幾つか気づくことが何回かありました。 
 
 明日は「外部コマンドを実行してみる」です。
 

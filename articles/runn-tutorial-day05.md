@@ -8,40 +8,40 @@ published_at: 2023-12-05 00:00
 ---
 
 :::message
-この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の12/05配信になります。
+この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/05 配信になります。
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートしていました。  
-本記事はAPIシナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25日全部理解したら一人でrunnを使ってAPIシナリオテストや、ちょっとしたAPIと連携する自動化処理までをできるようになること目標にしています。  
+本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
+25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
 
-前日の記事は　「[ステップに説明を付けてみる](https://zenn.dev/katzumi/articles/runn-tutorial-day04)」でした。
+前日の記事は「[ステップに説明を付けてみる](https://zenn.dev/katzumi/articles/runn-tutorial-day04)」でした。
 
 ## 変数を使ってみる
 
 [昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day04) でステップに説明を記載して可読性を上げる方法を説明しました。
-また、HTTP Runnerのステップ記述内容についても触れさせて頂きました。
+また、HTTP Runner のステップ記述内容についても触れさせて頂きました。
 
 今回はそれを発展させてシナリオを作る上で欠かせない変数の概念について説明したいと思います。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day05/vars.yml
 
 少し記述が増えました。
-Github Actionsのworkflowを記述したことがある人であれば、何となく読めるのではないでしょうか？
+Github Actions の workflow を記述したことがある人であれば、何となく読めるのではないでしょうか？
 
 追加された箇所を順に説明していきます。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day05/vars.yml#L4-L5
 
 `vars` セクションが追加されています。こちらのセクションで変数を定義しています。
-`username` という変数名に`"zenn"` という *文字列* を定義しています。
+`username` という変数名に `"zenn"` という *文字列* を定義しています。
 
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day05/vars.yml#L9
@@ -50,7 +50,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day05/vars.yml#L9
 定義した変数は `vars.変数名` で参照できます。ただそのまま記述してもエンドポイントのパスと区別がつかないので、`{{}}` で囲う必要があります。
 `{{}}` で囲った内容は変数展開されると覚えておいてください。
 
-昨日の例ではusernameは固定で
+昨日の例では username は固定で
 
 `/api/articles?username=katzumi&order=latest`
 
