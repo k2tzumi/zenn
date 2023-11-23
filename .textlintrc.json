@@ -1,5 +1,9 @@
 {
-  "plugins": {},
+  "plugins": {
+    "@textlint/markdown": {
+      "extensions": [".md"]
+    }
+  },
   "filters": {
     "comments": true
   },
