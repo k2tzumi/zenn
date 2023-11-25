@@ -40,7 +40,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day07/test.yml
 https://github.com/k2tzumi/runn-tutorial/blob/main/day07/test.yml#L15-L19
 
 2 つチェック観点として記述しています。
-まずは1つ目はステータスコードが 200 になっていることです。
+まずは 1 つ目はステータスコードが 200 になっていることです。
 同一ステップ内のステータスコードを参照するには `current.res.status` となります。
 レスポンス Body の参照は `current.res.body` になります。
 2 つ目のチェックはレスポンス Body の JSON の検証を行っています。

@@ -31,7 +31,7 @@ https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day06/env.yml
 
-変数を増やしていたりもしますが、増えた記述方法は1つのみです。
+変数を増やしていたりもしますが、増えた記述方法は 1 つのみです。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day06/env.yml#L5
 
@@ -50,7 +50,7 @@ $ USER=zenn runn run day06/env.yml --debug
 
 こちらの環境変数の展開を利用すると、環境依存の記述が変数化ができ
 
-* 1つの runbook で本番環境とテスト環境の実行が切り替えれる
+* 1 つの runbook で本番環境とテスト環境の実行が切り替えれる
 * 環境変数によって動作を変更させることができる
 
 といったことが出来るようになりますので、意識的に環境変数を埋め込んでいくことをオススメします。

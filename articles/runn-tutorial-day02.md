@@ -59,7 +59,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day02/hello_world.yml#L2-L4
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day02/hello_world.yml#L3-L4
 
-上記のハイフンから dump の部分がシナリオのステップの中身になり、こちらが1つのステップとなります。
+上記のハイフンから dump の部分がシナリオのステップの中身になり、こちらが 1 つのステップとなります。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day02/hello_world.yml#L4
 

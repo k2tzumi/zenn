@@ -27,10 +27,10 @@ https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 ## リクエストの結果を次のステップで利用してみる
 
 [昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day07) でレスポンス結果の参照及び検証を行う方法について説明しました。 
-1つのエンドポイントに対して呼び出しと検証ができるようになったと思います。
+1 つのエンドポイントに対して呼び出しと検証ができるようになったと思います。
 ここからよりシナリオテストっぽくしていきたいと思います。
 
-今までの内容ではステップが1つのみでしたが、今回始めて複数ステップになります。
+今までの内容ではステップが 1 つのみでしたが、今回始めて複数ステップになります。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day08/previous.yml
 
@@ -39,7 +39,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day08/previous.yml
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day08/previous.yml#L9-L19
 
-1番目のステップです。
+1 番目のステップです。
 ここは前回と変わりません。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day08/previous.yml#L20-L30
@@ -54,10 +54,10 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day08/previous.yml#L22
 以前の ["変数を使ってみる"](http://localhost:8000/articles/runn-tutorial-day05)での説明や今回の 1 番目のステップの様に `vars.変数名` ではなく `previous.resp.body` という参照になっているかと思います。
 ["レスポンスの結果を検証してみる"](http://localhost:8000/articles/runn-tutorial-day07) で説明した `current.res.body` と近い記述になっているかと思います。
 違いは `current` が `previous` になっているだけです。
-`previous` は1つ前のステップを表すものになります。逆に？ `current` が現在のステップを表すものになります。
+`previous` は 1 つ前のステップを表すものになります。逆に？ `current` が現在のステップを表すものになります。
 これらは runn が自動的に作成する変数となります。
 
-今回のケースでは `previous.res.body.articles[0].slug` となっており、記事一覧取得のレスポンスで1番目の記事（配列は 0 から始まります）の slug にアクセスしています。
+今回のケースでは `previous.res.body.articles[0].slug` となっており、記事一覧取得のレスポンスで 1 番目の記事（配列は 0 から始まります）の slug にアクセスしています。
 `slug` は JSON のキーの名前ですが、一般的には URL のパスの一部になります。
 
 https://developer.mozilla.org/ja/docs/Glossary/Slug

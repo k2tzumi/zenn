@@ -100,7 +100,7 @@ include セクションの中に vars の宣言があります。
 $ USER=katzumi runn run day13/include-with-vars.yml --debug
 ```
 
-include と vars の組み合わせで1つの runbook がモジュールの様に扱えるのが理解頂けたかと思います。　　
+include と vars の組み合わせで 1 つの runbook がモジュールの様に扱えるのが理解頂けたかと思います。　　
 単体の runbook なら `vars` と `bind` はそれほど使わなくてもいいと思いますが、共通化する runbook は必要に応じてそれぞれ変数を定義して使いやすくしていきましょう！
 
 明日は「include 専用シナリオを活用する」です。

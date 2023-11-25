@@ -50,7 +50,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day11/loop.yml#L25
 
 この `loop` セクションで繰り返し実行数を指定します。
 `len(articles)` で `articles` の件数になります。
-急に出てきた `articles` ですが、1つ前のステップで別名定義しています。
+急に出てきた `articles` ですが、1 つ前のステップで別名定義しています。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day11/loop.yml#L21-L22
 
