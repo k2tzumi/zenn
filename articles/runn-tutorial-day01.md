@@ -8,26 +8,27 @@ published_at: 2023-12-01 00:00
 ---
 
 :::message
-この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/01 配信になります。
+この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/01 配信となります。
+<!-- markdownlint-disable-next-line ja-technical-writing/ja-no-mixed-period -->
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートします。  
 本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
+25 日間のチュートリアルを経て、 runn を使っての API シナリオテストや、 API と連動させる自動化処理を一人で行えるようになることを目標にしています。
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
-チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
+チュートリアルを実際に試し、もし躓いた箇所があれば、記事のコメント欄にお知らせいただけると幸いです。
 
-では早速いってみましょう
+では早速いってみましょう。
 
 ## runnをインストールしてみよう
 
 runn は golang で書かれた CLI ツールなっており、導入は簡単です。
-インストール方法はいくつかありますが、代表的なものだと以下の様になります
+インストール方法はいくつかありますが、代表的なものだと以下の様になります。
 
 
 * Homebrew  
@@ -148,7 +149,7 @@ runn は golang で書かれた CLI ツールなっており、導入は簡単�
     :::details 実行結果
     :::
 
-その他のインストール方法はオフィシャルのページを参照ください
+その他のインストール方法はオフィシャルのページを参照ください。
 
 https://github.com/k1LoW/runn#install
 
@@ -156,7 +157,7 @@ https://github.com/k1LoW/runn#install
 
 ```console
 $ runn --version
-runn version 0.90.2
+runn version 0.90.3
 ```
 
 明日は「Hello world!」です。
