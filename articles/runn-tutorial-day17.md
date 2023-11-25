@@ -9,29 +9,30 @@ published_at: 2023-12-17 00:00
 
 :::message
 この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/17 配信になります。
+<!-- markdownlint-disable-next-line ja-technical-writing/ja-no-mixed-period -->
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートして絶賛掲載中です。  
 本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
+25 日間のチュートリアルを経て、 runn を使っての API シナリオテストや、 API と連動させる自動化処理を一人で行えるようになることを目標にしています。 
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
-チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
+チュートリアルを実際に試し、もし躓いた箇所があれば、記事のコメント欄にお知らせいただけると幸いです。
 
 前日の記事は「[JSONファイルにパラメータ埋め込みをしてみる](https://zenn.dev/katzumi/articles/runn-tutorial-day16)」でした。
 
 ## レスポンスをdumpして外部JSON化する
 
 [昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day16) でリクエストの JSON にパラメータを埋め込む様にできました。 
-今回は、リクエストだけでなくレスポンスを JSON 化させる方法を紹介したいと思います。
+今回は、リクエストだけでなくレスポンスを JSON 化させる方法を紹介していきます。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day17/dump-out.yml
 
-レスポンスをまず取得するシナリオに一時的にします。
+レスポンスをまず取得するシナリオへ一時的にします。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day17/dump-out.yml#L21-L23
 
@@ -41,22 +42,20 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day17/dump-out.yml#L21-L23
 前回は 1 行に記載して標準出力されていましたが、今回は `expr` と `out` に分かれています。
 `expr` は評価したい値を記載し、`out` には評価した値を保存するパスを相対パスで指定させます。
 
-json の出力が終わったら、以下のように runbook を書き換えます
+json の出力が終わったら、以下のように runbook を書き換えます。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day17/dump-and-verify.yml
 
-変更点はまず
+変更点はまず、レスポンスを JSON を読み込んでいます。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day17/dump-and-verify.yml#L8
 
-でレスポンスを JSON を読み込んでいます。
 JSON ファイルの読み込みについては ["リクエストJSONを外部ファイル化する"](https://zenn.dev/katzumi/articles/runn-tutorial-day15) を参照ください。
 
-次に dump を削除したかわりに
+次に dump を削除したかわりに test の条件を追加しています。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day17/dump-and-verify.yml#L22-L23
 
-test の条件を追加しています。
 こちらの内容で JSON のファイルの内容とレスポンス BODY を比較することが出来ます。
 
 実際に動作させてみましょう。
@@ -109,7 +108,7 @@ $  USER=katzumi runn run day17/dump-and-verify.yml --verbose
 
 今度は 2 つとも成功しました。
 
-更新された articles.json を確認してみると
+更新された articles.json は以下の様になります。
 
 ```console
 $ git diff day17/articles.json
@@ -131,7 +130,7 @@ index abe4a9e..9eca829 100644
 `liked_count` が 2 つ増えていたようです。
 
 如何でしたでしょうか？レスポンスも JSON 化して比較することが出来ました。
-本記事で紹介した形で JSON をテストに組み込むことができれば、前回のレスポンス結果から内容が変わった場合にすぐに気づくことが出来ます。
+紹介した方法で JSON をテストに組み込むことができれば、前回のレスポンス結果から内容が変わった場合にすぐに気づくことが出来ます。
 この様なテストは Golden Test と呼ばれます。API のデグレに気づく事ができますので、テクニックとして覚えておくと良いでしょう。
 
 

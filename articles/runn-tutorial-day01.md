@@ -8,8 +8,9 @@ published_at: 2023-12-01 00:00
 ---
 
 :::message
+
 この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/01 配信となります。
-<!-- markdownlint-disable-next-line ja-technical-writing/ja-no-mixed-period -->
+
 :::
 
 ## はじめに
@@ -35,6 +36,7 @@ runn は golang で書かれた CLI ツールなっており、導入は簡単�
     ```bash
     $ brew install k1LoW/tap/runn
     ```
+<!-- textlint-disable -->
     :::details 実行結果
     Running `brew update --auto-update`...
     ==> Auto-updated Homebrew!
@@ -141,6 +143,7 @@ runn は golang で書かれた CLI ツールなっており、導入は簡単�
     Removing: /Users/bob/Library/Logs/Homebrew/python@3.11... (2 files, 2.5KB)
     Pruned 0 symbolic links and 4 directories from /opt/homebrew
     :::
+<!-- textlint-enable -->
 
 * Golang  
     ```bash
@@ -160,6 +163,6 @@ $ runn --version
 runn version 0.90.3
 ```
 
-明日は「Hello world!」です。
+明日は「Hello world！」です。
 
 https://zenn.dev/katzumi/articles/runn-tutorial-day02

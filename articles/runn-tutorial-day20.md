@@ -9,18 +9,19 @@ published_at: 2023-12-20 00:00
 
 :::message
 この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/20 配信になります。
+<!-- markdownlint-disable-next-line ja-technical-writing/ja-no-mixed-period -->
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートしてそろそろラストスパートです。  
 本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
+25 日間のチュートリアルを経て、 runn を使っての API シナリオテストや、 API と連動させる自動化処理を一人で行えるようになることを目標にしています。 
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
-チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
+チュートリアルを実際に試し、もし躓いた箇所があれば、記事のコメント欄にお知らせいただけると幸いです。
 
 前日の記事は「[外部コマンドを実行してみる](https://zenn.dev/katzumi/articles/runn-tutorial-day19)」でした。
 
@@ -32,7 +33,7 @@ runn が対応しているデータベースは幾つかありますが、今回
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/init-db.yml
 
-まず runners セクションから見ていきます
+まず runners セクションから見ていきます。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/init-db.yml#L2-L3
 
@@ -51,7 +52,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day20/init-db.yml#L27-L34
 
 `select * from sqlite_master;` でテーブル一覧を取得しています。
 test では `one(current.rows, {.tbl_name == 'article'})` をチェックしています。
-コメントに記載していますが、テーブル一覧に article が含まれていることを確認しています。　　
+コメントに記載していますが、テーブル一覧に article が含まれていることを確認しています。　
 runn は式評価に [antonmedv/expr](https://github.com/antonmedv/expr) を利用しています。
 こちらの式評価で使える記法については [こちら](https://github.com/antonmedv/expr/blob/master/docs/Language-Definition.md) を参照してください。
 うまく使うとテスト内容を柔軟に定義することが出来るようになります。
@@ -60,7 +61,7 @@ runn は式評価に [antonmedv/expr](https://github.com/antonmedv/expr) を利�
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/use-db.yml
 
-長いのでステップごとにみています
+長いのでステップごとにみています。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/use-db.yml#L9-L11
 
@@ -80,16 +81,14 @@ loop の使い方は ["繰り返し処理を行ってみよう"](https://zenn.de
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/use-db.yml#L39-L43
 
-テストの内容ですが
+テストの内容ですが、以下になります。
 
 * last_insert_id  
-最後に insert されたレコードの ID
+最後に insert されたレコードの ID。
 * rows_affected  
-クエリ実行後の影響のあった行数。今回の INSERT 文では 1 レコードづつ入れているので、1 になります
+クエリ実行後の影響のあった行数。今回の INSERT 文では 1 レコードづつ入れているので、1 になります。
 
-となります。
-
-いよいよ最後のステップです
+いよいよ最後のステップです。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day20/use-db.yml#L44-L48
 
@@ -118,7 +117,7 @@ $ USER=katzumi runn run day20/use-db.yml --verbose
 ```
 
 いいね数の TOTAL が 516 なのがわかります。
-`--debug` オプションの方がより動きがわかりやすいと思うので、ぜひ実行してみてください。
+`--debug` オプションの方が、動きがよりわかりやすいので、ぜひ実行してみてください。
 
 如何でしたでしょうか？データベースを利用することで、複雑なシナリオを実現できるようになります。
 API シナリオテストですが、全てのデータに対して API が提供されていなかったりする場合にこちらのデータベースへのアクセスは非常に有効になります。

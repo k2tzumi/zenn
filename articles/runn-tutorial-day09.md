@@ -9,18 +9,19 @@ published_at: 2023-12-09 00:00
 
 :::message
 この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/09 配信になります。
+<!-- markdownlint-disable-next-line ja-technical-writing/ja-no-mixed-period -->
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートしていました。  
 本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
+25 日間のチュートリアルを経て、 runn を使っての API シナリオテストや、 API と連動させる自動化処理を一人で行えるようになることを目標にしています。 
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
-チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
+チュートリアルを実際に試し、もし躓いた箇所があれば、記事のコメント欄にお知らせいただけると幸いです。
 
 前日の記事は「[リクエストの結果を次のステップで利用してみる](https://zenn.dev/katzumi/articles/runn-tutorial-day08)」でした。
 
@@ -28,20 +29,20 @@ https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
 [昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day08) で 2 つのステップを定義して API を組み合わせたテストを行えるようになりました。 
 
-今回はもっと複雑に 3 ステップ以上のシナリオを書いていきたいと思います。
+今回はもっと複雑に 3 ステップ以上のシナリオを書いていきます。
 
 ### listのままの場合
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/lists.yml
 
-長いので 1st ビューに収まらない。。
+長いので 1st ビューに収まらないです、。
 
 1 ステップ目はまったく同じです。
 2 ステップ目から見ていきましょう。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/lists.yml#L20-L30
 
-やっている内容は前回とまったく同じですが、前回は `current` と `previous` を参照していましたが、書き方が変わりました。
+やっている内容は前回とまったく同じですが、前回は `current` と `previous` を参照していた書き方が変わりました。
 
 |内容|変更前|変更後|
 |---|---|---|
@@ -50,23 +51,22 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day09/lists.yml#L20-L30
 |一つ前のステップの1番目の記事のID|`previous.res.body.articles[0].id`|`steps[0].res.body.articles[0].id`|
 
 それぞれ変わっています。
-上記部分では
+上記部分ではそれぞれ以下のように対応します。
 
 * `current` が `steps[1]`
 * `previous` が `steps[0]`
 
-に対応することがわかると思います。
-`steps[ステップ番号]` で参照できるのがわかると思います。
+`steps[ステップ番号]` で参照できるのがわかります。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/lists.yml#L31-L41
 
 3 ステップ目はこちらになります。
-`steps[2]` という変数が現れましたが、3 ステップ目を表しているのがわかると思います。
+`steps[2]` という変数が現れましたが、3 ステップ目を表しているのがわかります。
 `steps[2]` から参照すると 1 つ前（`previous`）が `steps[1]` になります。
 実は `current` と `previous` はこの `steps[ステップ番号]` の alias(別名)になっています。
 
 前回までは 2 ステップしかなかったので、問題なかったのですが 3 ステップ目になると単純に 1 つ前だけでなく 2 つ、3 つ前も参照したくなります。
-その場合にステップ番号でのアクセスする方法では大変です。ステップ番号を覚えるのも大変ですし、途中でステップの追加も発生する可能性もあります。
+その場合にステップ番号でのアクセスする方法では大変です。ステップ番号を覚えるのも大変ですし、途中でステップの追加も発生する可能性があります。
 
 ということで本題にあるステップの名前をつけたくなります。
 
@@ -76,15 +76,15 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day09/lists.yml#L31-L41
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/maps.yml
 
-yaml の steps セクションの書き方が list から map に変わっているのがわかると思います。
+yaml の steps セクションの書き方が list から map に変わっているのがわかります。
 
-1 つ目のステップ
+1 つ目のステップを見ていきます。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/maps.yml#L9-L20
 
 `listArticles` というステップ名にしています。
 
-2 つ目のステップ
+次に 2 つ目のステップはこちら。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/maps.yml#L21-L32
 
@@ -102,14 +102,12 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day09/maps.yml#L21-L32
 https://github.com/k2tzumi/runn-tutorial/blob/main/day09/maps.yml#L33-L44
 
 3 ステップ目です。
-こちらはもう既に説明不要かと思います。
-説明の為に冗長に記載していますが、
+こちらはもう既に説明不要かと考えます。
+説明の為に冗長に記載していますが、`steps.showSecondArticle.res.body.article.id` の部分は今まで通り `current.res.body.article.id` としたほうがわかりやすいです。
 
-`steps.showSecondArticle.res.body.article.id` の部分は今まで通り `current.res.body.article.id` としたほうがわかりやすいです。
+map 形式にすれば `previous` をほぼ使うことはありませんが、`current` はステップ名を変更した場合も影響を受けなくすることが出来るのでオススメです。
 
-map 形式にすれば `previous` はほぼ使うことはありませんが、`current` はステップ名を変更した場合も影響を受けなくすることが出来るのでオススメです。
-
-最後に runn 実行時のオススメのオプションを紹介したいと思います。`--verbose` オプションです。
+最後に runn 実行時のオススメのオプションを紹介します。`--verbose` オプションです。
 
 * list 形式の場合  
     ```console

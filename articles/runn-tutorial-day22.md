@@ -9,43 +9,44 @@ published_at: 2023-12-22 00:00
 
 :::message
 この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/22 配信になります。
+<!-- markdownlint-disable-next-line ja-technical-writing/ja-no-mixed-period -->
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートしてそろそろラストスパートです。  
 本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
+25 日間のチュートリアルを経て、 runn を使っての API シナリオテストや、 API と連動させる自動化処理を一人で行えるようになることを目標にしています。 
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
-チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
+チュートリアルを実際に試し、もし躓いた箇所があれば、記事のコメント欄にお知らせいただけると幸いです。
 
 前日の記事は「[CDPを使ってブラウザ操作してみる](https://zenn.dev/katzumi/articles/runn-tutorial-day21)」でした。
 
 ## CIに組み込んでみる
 
 今まで色々なシナリオを作成していきましたが、自動テストとして組み込みたくなります。
-今日は runn を GitHub Acitons の workflow として実行してみたいと思います。
+今日は runn を GitHub Acitons の workflow として実行してみたいきます。
 
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day22/github-action.yml
 
-今回の API は以下を利用したいと思います。
+今回の API は以下を利用したいきます。
 
 https://httpbin.org/
 
 こちらは色々な HTTP メソッドを試せるサービスで実行環境が Docker イメージとしても公開されています。
 
-runn を CI で動かす際に重要となる所が以下の箇所となります
+runn を CI で動かす際に重要となる所が以下の箇所となります。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day22/github-action.yml#L3-L4
 
 runners の各 Runner で環境依存のものは環境変数にすることです。
 CI 上のサービスと連携してテストすることになりますので、API のエンドポイントなどを変更できるようにします。
 
-:::details ローカル実行結果
+:::details ローカル実行結果。
 
 ```console
 % runn run day22/github-action.yml --debug
@@ -180,13 +181,13 @@ Run "test" on "Github Actionsから実行する（環境依存のパラメータ
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/.github/workflows/ci.yml
 
-要点だけ説明します
-
+要点だけ説明します。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/.github/workflows/ci.yml#L16-L20
 
 こちらでテスト対象のサービスを立ち上げています。
-今回はコンテナイメージがそのまま使えましたが、なかなか外部公開されているサービスをテストすることはないと思うので、workflow 内でサーバーを立ち上げるように実行していく形になるかと思います。
+今回はコンテナイメージがそのまま使えましたが、なかなか外部公開されているサービスをテストすることはないと考えます。
+workflow 内でサーバーを立ち上げるように実行していく形になります。
 
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/.github/workflows/ci.yml#L24-L29
@@ -204,9 +205,9 @@ workflow の実行時の例としては以下のようになります。
 
 https://github.com/k2tzumi/runn-tutorial/actions/runs/6968579651/job/18962718606#step:5:14
 
-如何でしたでしょうか？runn は golang のアプリでワンバイナリで動くので CI 上での実行も簡単です。
+如何でしたでしょうか？runn は golang のアプリケーションはワンバイナリで動くので CI 上での実行も簡単です。
 なかなか CI 上で E2E テストを組み込むのはハードルが高い印象でしたが、runn による API テストでは容易に組み込むことが出来るのでオススメです。
-ミディアムテストとして効率よくカバレッジを稼ぐことができ、ブラウザテストに比べて安定してスピードも早いのでコスパが良いと思います。
+ミディアムテストとして効率よくカバレッジを稼ぐことができ、ブラウザテストに比べて安定してスピードも早いのでコスパが良いです。
 
 明日は「ファイルをアップロードする」です。
 

@@ -9,18 +9,19 @@ published_at: 2023-12-12 00:00
 
 :::message
 この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/12 配信になります。
+<!-- markdownlint-disable-next-line ja-technical-writing/ja-no-mixed-period -->
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートして前半戦を終えようとしています。  
 本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
+25 日間のチュートリアルを経て、 runn を使っての API シナリオテストや、 API と連動させる自動化処理を一人で行えるようになることを目標にしています。 
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
-チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
+チュートリアルを実際に試し、もし躓いた箇所があれば、記事のコメント欄にお知らせいただけると幸いです。
 
 前日の記事は「[繰り返し処理を行ってみよう](https://zenn.dev/katzumi/articles/runn-tutorial-day11)」でした。
 
@@ -29,7 +30,7 @@ https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 [昨日の記事](https://zenn.dev/katzumi/articles/runn-tutorial-day11) でステップを繰り返し実行できるようになりました。 
 ここまでのチュートリアルで、ステップバイステップでシナリオを育てていった感じでした。
 
-個人的には unn の真骨頂だと思っている、発展的なシナリオ定義方法について説明をしていきたいと思います。
+個人的には unn の真骨頂だと思っている、発展的なシナリオ定義方法について説明をしていきます。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day12/list-articles.yml
 
@@ -52,7 +53,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day12/include.yml
 
 こちらのシナリオの内容は ["ステップに名前を付ける"](https://zenn.dev/katzumi/articles/runn-tutorial-day09#mapにする) の内容とまったく同じです。
 
-主に違うのはここの部分です
+主に違うのはここの部分です。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day12/include.yml#L5-L7
 
@@ -61,11 +62,10 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day12/include.yml#L5-L7
 
 include を使った場合の注意として、後続のステップではそのまま include 内のステップの結果を参照できないということです。
 
-ここで重要になるのが、include 先の
+ここで重要になるのが、include 先のこちらの bind です。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day12/list-articles.yml#L21-L22
 
-こちらの bind です。
 こちらの bind したものが参照できます。
 bind の使い方については ["任意の値に別名をつける"](https://zenn.dev/katzumi/articles/runn-tutorial-day10) をご参照ください。
 
@@ -95,7 +95,8 @@ include を使うことでステップの共通化することが出来ます。
 ```console
 $ USER=katzumi runn run day12/include.yml
 ```
-:::details 実行結果
+
+:::details 実行結果。
 
 ```console
 Run "指定された件数分、記事一覧を取得します" on "既存のシナリオから新しいシナリオを作成する".steps.listArticles

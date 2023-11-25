@@ -9,27 +9,28 @@ published_at: 2023-12-18 00:00
 
 :::message
 この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/18 配信になります。
+<!-- markdownlint-disable-next-line ja-technical-writing/ja-no-mixed-period -->
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートして絶賛掲載中です。  
 本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
+25 日間のチュートリアルを経て、 runn を使っての API シナリオテストや、 API と連動させる自動化処理を一人で行えるようになることを目標にしています。 
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
-チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
+チュートリアルを実際に試し、もし躓いた箇所があれば、記事のコメント欄にお知らせいただけると幸いです。
 
 前日の記事は「[レスポンスをdumpして外部JSON化する](https://zenn.dev/katzumi/articles/runn-tutorial-day17)」でした。
 
 ## OpenAPIの仕様書通りか？テストする
 
-今までのチュートリアルで API のリクエストと期待値となるレスポンスは runbook の作成者が妥当性をチェックする必要がありました。
+今までのチュートリアルで API のリクエストと期待値のレスポンスは runbook の作成者が妥当性をチェックする必要がありました。
 今回は API のインターフェースの品質の向上に有効な機能を紹介します。
 
-今回は以下の API をテストしてみたいと思います。サンプルの petstore の API ですね。
+今回は以下の API をテストしていきます。よく見るサンプルの petstore の API です。
 
 https://petstore3.swagger.io/
 
@@ -85,7 +86,7 @@ $ runn run day18/open-api-fail.yml --verbose
 `status` パラメータに誤りがあるようです。
 `avaliable` と typo していました。`available` が正しいようです。
 
-この様に OpenAPI の定義ファイルを指定しておくと、リクエスト方法に誤りがあった場合にリクエスト前に気づくことが出来ます。
+この様に OpenAPI の定義ファイルを指定しておくと、リクエスト方法の誤りがあった場合、リクエスト送信時に気づくことが出来ます。
 またレスポンスも自動的にチェックされます。
 
 間違いに気づいたので、直します。
@@ -103,8 +104,8 @@ $ runn run day18/open-api.yml --verbose
 
 今度は OK になりました。
 
-こちらの OpenAPI の仕様書を指定すると非常に品質の高いテストが行なえますが、敢えてリクエスト異常なテストを行いたいケースがあると思います。
-この様にします。
+こちらの OpenAPI の仕様書を指定すると非常に品質の高いテストが行なえますが、敢えてリクエスト異常なテストを行いたいケースがあります。
+その場合、この様にします。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day18/open-api-bad-request.yml
 
@@ -114,7 +115,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day18/open-api-bad-request.ym
 
 こうすると、リクエストの validation がスキップされます。
 
-:::details 実行結果
+:::details 実行結果。
 
 ```console
 $ runn run day18/open-api-bad-request.yml --debug
@@ -148,7 +149,7 @@ Run "test" on "OpenAPIのSpecを参照し、Bad Requestのテストを行う場�
 
 
 OpenAPI の仕様書が存在する API をテストする際に、設定は必須だと感じています。
-この API 仕様書のリクエストとレスポンスが仕様書通りになっているか？というのは API の品質を担保する上で重要かと思います。
+この API 仕様書のリクエストとレスポンスが仕様書通りになっているか？というのは API の品質を担保する上で重要になります。
 筆者はこちらの機能によって、API の仕様バグを幾つか気づくことが何回かありました。 
 
 明日は「外部コマンドを実行してみる」です。
