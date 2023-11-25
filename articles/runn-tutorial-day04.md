@@ -9,18 +9,19 @@ published_at: 2023-12-04 00:00
 
 :::message
 この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/04 配信になります。
+<!-- markdownlint-disable-next-line ja-technical-writing/ja-no-mixed-period -->
 :::
 
 ## はじめに
 
 一人アドベントカレンダーとしスタートしていました。  
 本記事は API シナリオテストツールでもある [runn](https://github.com/k1LoW/runn) のチュートリアルをステップバイステップで理解して貰おう！というのが趣旨です。  
-25 日全部理解したら一人で runn を使って API シナリオテストや、ちょっとした API と連携する自動化処理までをできるようになること目標にしています。  
+25 日間のチュートリアルを経て、 runn を使っての API シナリオテストや、 API と連動させる自動化処理を一人で行えるようになることを目標にしています。 
 runn is 何？という方は、以下に紹介記事を書いていますのでよろしくお願いします。
 
 https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 
-チュートリアルを実際に試してみて、もし躓いた箇所がありましたら記事のコメントをして頂ければと思います。
+チュートリアルを実際に試し、もし躓いた箇所があれば、記事のコメント欄にお知らせいただけると幸いです。
 
 前日の記事は「[curlコマンドをreplayさせる](https://zenn.dev/katzumi/articles/runn-tutorial-day03)」でした。
 
@@ -35,7 +36,7 @@ https://zenn.dev/katzumi/articles/api-scenario-testing-with-runn
 https://github.com/k2tzumi/runn-tutorial/blob/main/day04/desc.yml
 
 runbook 全体の他にステップ内にも `desc` セクションで説明を追加することが出来ます。
-これでぐっと読みやすくなると思います。
+これでぐっと可読性が高くなります。
 こちらの説明は debug 実行時にも出力され、何をやっているのか？わかりやすくなり、エラー発生時にもステップを特定しやすくなります。
 
 ```console
@@ -47,7 +48,7 @@ Host: zenn.dev
 Content-Type: application/json
 ```
 
-わかりやすいように前回の内容との比較してみます
+わかりやすいように前回の内容との比較してみます。
 
 ```console
 $ runn run day03/curl.yml --debug 
@@ -78,11 +79,11 @@ User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (
 
 前回の記事では出力された runbook の説明を割愛してしまったので、シンプルになった runbook で説明をします。
 
-最初に `runners` というセクションが増えていると思います。
+最初に `runners` というセクションが増えています。
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day04/desc.yml#L2-L3
 
-こちらのセクションでは runbook 内で実行する各種 Runner の定義を行います。  
+こちらのセクションでは、runbook 内で実行する各種 Runner を定義します。
 こちらの `req` という名前で定義されているものが HTTP Runner になります。`http://` と `https://` のプロトコル名から始める必要があります。  
 後日触れますが、http 以外のプロトコルの Runner が幾つか用意されています。
 こちらのセクションでそれらの Runner の名前とオプションを定義する箇所だと覚えておいて貰えれば OK です。
@@ -112,7 +113,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day03/curl.yml#L8-L23
 
 :::
 
-HTTP 通信の理解があれば、説明がなくても直感的に理解できると思います。
+HTTP 通信の理解があれば、この内容を理解するのは容易でしょう。
 
 
 明日は「変数を使ってみる」です。
