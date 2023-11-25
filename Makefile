@@ -18,3 +18,8 @@ upgrade:
 preview: ## Preview contents
 preview:
 	npx zenn preview
+
+.PHONY: lint
+lint: ## Run textlint
+lint:
+	npx textlint "./{articles,books}/*.md"
