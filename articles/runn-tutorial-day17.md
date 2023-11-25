@@ -8,8 +8,9 @@ published_at: 2023-12-17 00:00
 ---
 
 :::message
+
 この記事は [runnチュートリアル Advent Calendar 2023](https://qiita.com/advent-calendar/2023/runn-tutorial)の 12/17 配信になります。
-<!-- markdownlint-disable-next-line ja-technical-writing/ja-no-mixed-period -->
+
 :::
 
 ## はじめに
