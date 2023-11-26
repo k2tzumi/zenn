@@ -4,6 +4,9 @@
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
+node_modules:
+	npm install
+
 .PHONY: install
 install: ## Install packages
 install: node_modules
