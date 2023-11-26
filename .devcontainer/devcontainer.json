@@ -1,0 +1,28 @@
+{
+	"name": "Zenn-cli",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:dev-20-bookworm",
+
+
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "negokaz.zenn-editor",
+                "davidanson.vscode-markdownlint",
+                "yzhang.markdown-all-in-one"
+            ]
+        }
+    },
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/node/workspace,type=bind",
+    "workspaceFolder": "/home/node/workspace",
+
+    "forwardPorts": [8000],
+
+	"portsAttributes": {
+		"8000": {
+			"label": "preview",
+			"onAutoForward": "notify"
+		}
+	},
+	"postCreateCommand": "sh .devcontainer/post-create.sh"
+}
