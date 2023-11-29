@@ -150,6 +150,7 @@ runn は golang で書かれた CLI ツールなっており、導入は簡単�
     $ go install github.com/k1LoW/runn/cmd/runn@latest
     ```
     :::details 実行結果
+    go: downloading github.com/k1LoW/runn v0.91.0
     :::
 
 その他のインストール方法はオフィシャルのページを参照ください。
@@ -160,7 +161,7 @@ https://github.com/k1LoW/runn#install
 
 ```console
 $ runn --version
-runn version 0.90.3
+runn version 0.91.0
 ```
 
 明日は「Hello world！」です。
