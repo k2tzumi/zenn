@@ -161,7 +161,7 @@ https://github.com/k1LoW/runn#install
 
 ```console
 $ runn --version
-runn version 0.90.3
+runn version 0.91.0
 ```
 
 明日は「Hello world！」です。
