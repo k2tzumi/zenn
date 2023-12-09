@@ -7,7 +7,7 @@ published: true
 published_at: 2023-12-09 00:00
 ---
 :::message
-この記事は [LITALICO Engineers Advent Calendar 2023](https://qiita.com/advent-calendar/2023/litalico)の 12/09 配信になります。
+この記事は [LITALICO Advent Calendar 2023](https://qiita.com/advent-calendar/2023/litalico)の 12/09 配信になります。
 :::
 
 ## はじめに
@@ -147,5 +147,5 @@ https://zenn.dev/katzumi/articles/phpcon-okinawa-2023
 https://zenn.dev/katzumi/articles/php-conference-japan-2023
 　
 :::message
-明日は、[LITALICO Engineers Advent Calendar 2023](https://qiita.com/advent-calendar/2023/litalico) 10 日目の記事です。[@7ko_i](https://qiita.com/7ko_i) さんが担当してくれます。どうぞお楽しみに！
+明日は、[LITALICO Advent Calendar 2023](https://qiita.com/advent-calendar/2023/litalico) 10 日目の記事です。[@7ko_i](https://qiita.com/7ko_i) さんが担当してくれます。どうぞお楽しみに！
 :::
