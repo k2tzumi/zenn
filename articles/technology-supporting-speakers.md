@@ -119,11 +119,11 @@ https://k2tzumi.github.io/about-slidev-boilerplate/
 [![](https://k2tzumi.github.io/about-slidev-boilerplate/thumbnail/024.png)
 *24/24*](https://k2tzumi.github.io/about-slidev-boilerplate/24)
 
-どうやってスライド作ってるの？というのはこちらのmarkdownを参照ください。  
+どうやってスライド作ってるの？というのはこちらの markdown を参照ください。  
 
 https://github.com/k2tzumi/about-slidev-boilerplate/blob/main/slides.md
 
-markdown形式なので見た目よりも内容に注視して爆速で書けます。  
+markdown 形式なので見た目よりも内容に注視して爆速で書けます。  
 
 これらのスライドで使用しているテンプレートリポジトリはこちらになります。  
 
