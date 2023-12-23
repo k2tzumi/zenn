@@ -99,7 +99,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day24/final-task.yml
 
 こちらのシナリオを実行した結果がこちらになります。
 
-https://zenn.dev/katzumi/scraps/c8ff3f3dfc38fe
+https://zenn.dev/katzumi/scraps/2ea60934680341
 
 
 API を利用しランキングページを自動生成しています！
