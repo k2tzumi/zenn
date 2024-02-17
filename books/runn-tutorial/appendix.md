@@ -31,8 +31,8 @@ https://github.com/k2tzumi/runn-tutorial
 
 * O'Rly Generator  
 https://github.com/ArthurBeaulieu/ORlyGenerator  
-Bookカバー写真のテキストを生成しました
+Book カバー写真のテキストを生成しました
 
 * Microsoft Copilot  
 https://copilot.microsoft.com/  
-Bookカバーのメイン画像を生成しました  
+Book カバーのメイン画像を生成しました  
