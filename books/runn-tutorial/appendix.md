@@ -23,3 +23,16 @@ runn は色々なことができるツールです。
 
 等など、色々な情報を共有できたら嬉しいです！
 感想やご質問、runn 自体への要望等ございましたら、気軽にコメントして頂けますと幸いです。
+
+## 関連リンク
+
+* チュートリアルソースリポジトリ  
+https://github.com/k2tzumi/runn-tutorial
+
+* O'Rly Generator  
+https://github.com/ArthurBeaulieu/ORlyGenerator  
+Bookカバー写真のテキストを生成しました
+
+* Microsoft Copilot  
+https://copilot.microsoft.com/  
+Bookカバーのメイン画像を生成しました  
