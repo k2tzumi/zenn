@@ -30,4 +30,5 @@ chapters:
   - github-actions
   - multiparti-form-data
   - compilation
+  - coverage
   - appendix
