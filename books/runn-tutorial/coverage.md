@@ -65,7 +65,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/.github/workflows/coverage.ym
 カバレッジ取得せずに API シナリオテストの実行のみであれば、こちらの行のみで OK です。  
 CI 実行時にコンテナ起動された API サーバーを参照するように環境変数(`PETSTORE3_END_POINT`) を指定しているのが味噌です。
 
-https://github.com/k2tzumi/runn-tutorial/blob/main/.github/workflows/coverage.yml#L37C42-L59
+https://github.com/k2tzumi/runn-tutorial/blob/main/.github/workflows/coverage.yml#L37-L59
 
 main ブランチに対してのカバレッジを取得するステップです。  
 main ブランチをチェックアウトしてカバレッジを取得して、main ブランチ用の octocov 設定を利用してレポートしています。
