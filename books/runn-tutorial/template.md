@@ -52,12 +52,12 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day16/scrap.json.template
 
 中身は JSON のファイルですが、パラメータの埋め込みがされています。
 
-`{{.vars.title_suffix }}`
+`{{.uuid }}`
 
 こちらの記述方法は [Go Template](https://pkg.go.dev/text/template) になります。
 Go Template として認識させるには　`.json.template` という拡張子にする必要があります。
 
-Template 自体の記法については詳しくは説明しませんが、こちらの記述で `title_suffix` 変数が展開されます。
+Template 自体の記法については詳しくは説明しませんが、こちらの記述で、先に束縛した `uuid` 変数が展開されます。
 include 元でダミーの UUID が指定されているものが出力されることになります。
 
 どういう値が展開されているかは debug オプションを有効にして実行してみてください。
