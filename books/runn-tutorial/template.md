@@ -21,17 +21,23 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day16/json-template.yml
 
 変更があるステップを見ていきます。
 
-https://github.com/k2tzumi/runn-tutorial/blob/main/day16/json-template.yml#L9-L15
+https://github.com/k2tzumi/runn-tutorial/blob/main/day16/json-template.yml#L9-L12
 
-スクラップ記事の登録処理が include に書き直されています。
-前回は vars セクションで json ファイルを読み込むようになっていましたが、include 時の vars でも json 展開ができるようになっています。
-こちらの記述方法は ["includeしたシナリオの変数を書き換えよう"](https://zenn.dev/katzumi/books/runn-tutorial/viewer/include-vars) を参照ください。
-
-あと新しい要素として組み込み関数 `faker.UUID()` を呼び出しています。
-こちらでダミーの UUID を発行できます。
-runn には他にも便利な組み込み関数が幾つかあるのでオフィシャルのドキュメント（`Additional built-in functions`）を参照ください。
+こちらのステップで今回パラメータ埋め込みに利用する UUID を発行しています。  
+UUID の発行には組み込み関数 `faker.UUID()` を呼び出しています。  
+こちらでダミーの UUID を発行できます。  
+runn には他にも便利な組み込み関数が幾つかあるのでオフィシャルのドキュメント（`Additional built-in functions`）を参照ください。  
 
 https://github.com/k1LoW/runn#additional-built-in-functions
+
+発行した値を変数に束縛しています。  
+こちらの記述方法は ["任意の値に別名をつける"](https://zenn.dev/katzumi/books/runn-tutorial/viewer/bind) を参照ください。
+
+https://github.com/k2tzumi/runn-tutorial/blob/main/day16/json-template.yml#L13-L18
+
+次にスクラップ記事の登録処理が include に書き直されています。
+前回は vars セクションで json ファイルを読み込むようになっていましたが、include 時の vars でも json 展開ができるようになっています。
+こちらの記述方法は ["includeしたシナリオの変数を書き換えよう"](https://zenn.dev/katzumi/books/runn-tutorial/viewer/include-vars) を参照ください。
 
 次の 2,3 ステップ目は前回とほぼ同じなので割愛して、post-scrap.yml を見ていきます。
 
