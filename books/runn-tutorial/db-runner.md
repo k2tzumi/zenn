@@ -32,7 +32,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day20/init-db.yml#L27-L34
 test では `one(current.rows, {.tbl_name == 'article'})` をチェックしています。
 コメントに記載していますが、テーブル一覧に article が含まれていることを確認しています。　
 runn は式評価に [antonmedv/expr](https://github.com/antonmedv/expr) を利用しています。
-こちらの式評価で使える記法については [こちら](https://github.com/antonmedv/expr/blob/master/docs/Language-Definition.md) を参照してください。
+こちらの式評価で使える記法については [こちら](https://github.com/expr-lang/expr/blob/master/docs/language-definition.md) を参照してください。
 うまく使うとテスト内容を柔軟に定義することが出来るようになります。
 
 データベースの準備ができましたので本題のシナリオに入ります。
