@@ -9,30 +9,30 @@ runn が対応しているデータベースは幾つかありますが、今回
 
 前準備でスキーマ作成から行います。
 
-https://github.com/k2tzumi/runn-tutorial/blob/main/day20/init-db.yml
+https://github.com/k2tzumi/runn-tutorial/blob/af1c3c2c3d2842915da23fc0a2d072067bab6033/day20/init-db.yml
 
 まず runners セクションから見ていきます。
 
-https://github.com/k2tzumi/runn-tutorial/blob/main/day20/init-db.yml#L2-L3
+https://github.com/k2tzumi/runn-tutorial/blob/af1c3c2c3d2842915da23fc0a2d072067bab6033/day20/init-db.yml#L2-L3
 
 `sq://` スキーマで SQLite のファイルパスを指定します。
 `local` という名前で DB Runner を定義しています。
 
-https://github.com/k2tzumi/runn-tutorial/blob/main/day20/init-db.yml#L7-L26
+https://github.com/k2tzumi/runn-tutorial/blob/af1c3c2c3d2842915da23fc0a2d072067bab6033/day20/init-db.yml#L7-L26
 
 `query` セクションで実行するクエリを指定しています。
 こちらのクエリでテーブル作成しています。
 
-https://github.com/k2tzumi/runn-tutorial/blob/main/day20/init-db.yml#L27-L34
+https://github.com/k2tzumi/runn-tutorial/blob/af1c3c2c3d2842915da23fc0a2d072067bab6033/day20/init-db.yml#L27-L34
 
 次のステップで作成したテーブルの確認をしています。
-`if: !included` でこちらのステップは include *されなかった* 場合にのみ実行されます。
+`included == false` でこちらのステップは include *されなかった* 場合にのみ実行されます。
 
 `select * from sqlite_master;` でテーブル一覧を取得しています。
 test では `one(current.rows, {.tbl_name == 'article'})` をチェックしています。
 コメントに記載していますが、テーブル一覧に article が含まれていることを確認しています。　
 runn は式評価に [antonmedv/expr](https://github.com/antonmedv/expr) を利用しています。
-こちらの式評価で使える記法については [こちら](https://github.com/expr-lang/expr/blob/master/docs/language-definition.md) を参照してください。
+こちらの式評価で使える記法については [こちら](https://expr-lang.org/docs/language-definition) を参照してください。
 うまく使うとテスト内容を柔軟に定義することが出来るようになります。
 
 データベースの準備ができましたので本題のシナリオに入ります。
