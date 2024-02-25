@@ -48,7 +48,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day16/post-scrap.yml
 
 次にメインの scrap.json.template を見ていきます。
 
-https://github.com/k2tzumi/runn-tutorial/blob/main/day16/scrap.json.template
+https://github.com/k2tzumi/runn-tutorial/blob/aa7a7557a1727299347cfa818a098dc98667e4c5/day16/scrap.json.template
 
 中身は JSON のファイルですが、パラメータの埋め込みがされています。
 
