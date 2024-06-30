@@ -6,7 +6,7 @@ topics: ["phperkaigi","conference","iwillblog"]
 published: true
 ---
 
-## お断り
+## お詫び
 
 3 ヶ月も経過してしまっていますが、[PHPerKaigi202４](https://phperkaigi.jp/2024/) の参加記事となります。
 今年は本業の事業ドメイン的に忙しく、また 3 月はイベントも重なってしまったので完全に出遅れてしました。
