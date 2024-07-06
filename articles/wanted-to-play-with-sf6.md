@@ -119,13 +119,15 @@ macOS Sequoia BETA Full Installer をダウンロードしてインストール
 今は、 Wine の設定や起動オプションを最適化して模索している最中です。  
 今の所、以下のコマンドに落ち着いています。  
 ```
-MTL_HUD_ENABLED=1 WINEMSYNC=1 WINEESYNC=1 DXVK_ASYNC=1 ROSETTA_ADVERTISE_AVX=1 WINEPREFIX=~/Steam wine64 'C:\Program Files (x86)\Steam\Steam.exe'
+MTL_HUD_ENABLED=1 WINEESYNC=1 DXVK_ASYNC=1 ROSETTA_ADVERTISE_AVX=1 WINEPREFIX=~/Steam wine64 'C:\Program Files (x86)\Steam\Steam.exe'
 ```
 他にもいくつかオプションがありそうですが、違いがわかっていません。  
 * WINEDLLOVERRIDES  
-
+DDL読み込み方法を変更して、パフォーマンスに影響があることはわかっていますが、どうするのが正解なのかわかっていません。  
+設定すると変わらないか、遅くなる一方です。
 * DXVK_HUD
 * METAL_CAPTURE_ENABLED
+* WINEMSYNC
 
 ## 最後に
 
