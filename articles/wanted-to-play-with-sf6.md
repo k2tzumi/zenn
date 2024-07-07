@@ -107,7 +107,7 @@ macOS Sequoia BETA Full Installer をダウンロードしてインストール
 6. Steam 起動  
     取り敢えず以下のコマンドで Steam が起動できます。
     ```
-    WINEPREFIX=~/Steam MTL_HUD_ENABLED=1 WINEESYNC=1 wine64 'C:\Program Files (x86)\Steam\Steam.exe'
+    WINEPREFIX=~/Steam MTL_HUD_ENABLED=1 WINEESYNC=1 wine64 'C:\Program Files (x86)\Steam\Steam.exe'
     ```
     真っ黒な画面が表示されてログイン出来ない場合は、OS の言語設定を English になっているか？確認してみてください。
     ログインが出来たらあとはお目当てのゲームをダウンロードして実行してみてください。
