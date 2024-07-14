@@ -2,7 +2,7 @@
 title: "PHPカンファレンス福岡2024に参加してきました"
 emoji: "👄"
 type: "idea" # tech: 技術記事 / idea: アイデア
-topics: ["phpcon","conference"]
+topics: ["phpcon","conference","phpconfuk","phpカンファレンス福岡"]
 published: true
 ---
 
