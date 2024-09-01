@@ -6,30 +6,27 @@ topics: ["openapi","laravel","PHP","スキーマ駆動開発"]
 published: false
 ---
 
-こんにちは。LITALICO の [@katzumi](https://zenn.dev/katzumi) です。  
-レセプト基盤グループというチームで請求プラットフォームを作成しています。
+こんにちは。 [@katzumi](https://zenn.dev/katzumi) です。  
+LITALICO でレセプト基盤グループのマネージャーを務めています。
 
-最近、 eSports の大会の観戦にハマっています。パブリックビューイングできるオススメな飲食店があれば是非教えてください。
+今回の記事では、スキーマ駆動開発を強力にサポートするライブラリ『eg-r2』を開発して OSS として公開しましたので、紹介します。
+このライブラリを利用して、スキーマ駆動開発における API 仕様書とソースコードの 2 重管理を解消できました。
 
-さて今回の記事ではスキーマ駆動開発を強力にサポートするライブラリを開発して OSS として公開しましたので、紹介させて頂きます。
-このライブラリを利用して、スキーマ駆動開発における API 仕様書とソースコードの 2 重管理をなくすことができました。
+## Rezept as a Service の共通モジュールとして生まれた
 
-## Rezept as a Service
-
-まず今回のお話するライブラリのベースを開発したプロジェクトの説明をさせてください。
-LITALICO が社内外で利用・開発しているプロダクトが複数あります。
-そのプロダクトのコア業務であるレセプト業務を X as a Service として開発しました。
+まず、今回のライブラリのベースを開発したプロジェクトについて説明します。
+LITALICO では社内外で利用される複数のプロダクトを開発しています。
+これらのプロダクトのコア業務であるレセプト業務を X as a Service として開発しました。
 
 以前、こちらのプロジェクトの趣旨及び立ち上げの内容をアドベントカレンダーで記事にしました。
 
 https://zenn.dev/katzumi/articles/re-architecting-rezept
 
-
 こちらのプロジェクトでスキーマ駆動開発を採用しており、円滑かつ高品質に開発できる仕組みが必要だと考えました。
 
-## 開発目的
+## スキーマ駆動開発の課題
 
-上記の記事でも触れていますが、スキーマ駆動開発で OpenAPI V3 のフォーマットを採用しました。
+上記の記事でも触れていますが、OpenAPI V3 を利用してのスキーマ駆動開発のプロセスを採用しました。
 プロジェクトの特性として以下がありました。
 
 * API 数が多数にのぼり、スキーマ自体が複雑となる
@@ -56,13 +53,13 @@ https://zenn.dev/katzumi/articles/re-architecting-rezept
 
 ## コードが先か仕様書が先か？
 
-OpenAPI でのスキーマ駆動開発には、以下の 3 つのパターンがあります。
+OpenAPI で仕様書を記述する開発プロセスには、以下の 3 つのパターンがあります。
 
 1. API 仕様書とソースコードを独立して記述する手法
 2. API 仕様書からコードを自動生成する手法
 3. ソースコードから API 仕様書を生成する手法
 
-1 は従来通りの開発で、API 仕様書と実装が乖離してしまう可能性は高いと考えていました。
+1 は王道的で馴染みのある手法ではあるものの、API 仕様書と実装が乖離してしまう可能性が高いと考えていました。
 API 仕様書を非テキスト形式で記述すると、GitHub でのレビューが難しく、複数のツールを参照しながら開発するのは手間がかかります。
 また、スキーマが複雑でリクエストパラメータも多い場合、レビューが困難です。
 
@@ -89,15 +86,15 @@ OpenAPI 仕様書を記述する方法として [swagger-php](https://github.com
     public function users() { /* ... */ }
 ```
 
-API 仕様書をソースコード上に書けて、GitHub レビュー時に便利です。
-実装のコードと仕様が近い場所で書けるので書きやすいし、読みやすいのでオススメです。
-Attribute なので OpenAPI の文章構造もクラスとして表現されており、IDE の入力支援もされるので安心して書けます。
-swagger-php はメタデータを API 仕様書として出力します。ただこのメタデータはドキュメント生成時にのみ利用されていて、勿体ないと思いついて便利機能を実装したのが、今回紹介する eg-r2 というライブラリとなります。
+API 仕様書をソースコード上に記述することで、GitHub レビュー時に便利です。
+実装のコードと仕様を近い場所に記述できるため、書きやすく読みやすいのでオススメです。
+Attribute を使用することで、OpenAPI の文章構造がクラスとして表現され、IDE の入力支援も受けられるため、安心して記述できます。
+swagger-php はメタデータを API 仕様書として出力します。しかし、このメタデータはドキュメント生成時にのみ利用されており、勿体ないと感じました。そこで、便利機能を実装したのが今回紹介する eg-r2 というライブラリです。
 
-## eg-r2 とは？
+## eg-r2 の紹介
 
 今回紹介するライブラリが [eg-r2](https://github.com/litalico-engineering/eg-r2) になります。
-名前の由来は 2 つの R（リクエストの検証とルーティング）を Easy（イージー）に Generate する（音の響きと頭文字 eg のダブルミーニング）という意味となります。
+名前の由来は、2 つの R（リクエストの検証とルーティング）を Easy（イージー）に Generate するという意味で、音の響きと頭文字 eg のダブルミーニングです。
 
 > Easy request validation and route generation from open API specifications
 
@@ -121,19 +118,18 @@ Attribute を使う前提となるので 8.1 以上必要です。Active support
 Laravel10 は version [0.0.6](https://github.com/litalico-engineering/eg-r2/releases/tag/0.0.6) まで。
 version [1.0.0](https://github.com/litalico-engineering/eg-r2/releases/tag/1.0.0) 以上は Laravel11 向けとなります。
 
-## [セットアップ方法](https://github.com/litalico-engineering/eg-r2?tab=readme-ov-file#installation)
+## [eg-r2 の導入方法](https://github.com/litalico-engineering/eg-r2?tab=readme-ov-file#installation)
 
-まず composer install します。
+eg-r2 をプロジェクトに導入する方法について説明します。以下の手順に従ってください。
 
-```
-composer require litalico-engineering/eg-r2
-```
-
-次に vendor パブリッシュしてください。
-
-```
-php artisan vendor:publish --provider="Litalico\EgR2\Providers\GenerateRouteServiceProvider
-```
+1. **インストール**
+   ```bash
+   composer require litalico-engineering/eg-r2
+   ```
+2. 設定 config ディレクトリに eg-r2.php ファイルを作成し、必要な設定を行います。
+   ```bash
+   php artisan vendor:publish --provider="Litalico\EgR2\Providers\GenerateRouteServiceProvider
+   ```
 
 Laravel 標準のディレクトリ構成であれば、上記手順のみで OK です。
 別途 Controller の namespace が存在する場合は、 `config/eg-r2.php` の `namespaces` に追記してください。
@@ -143,19 +139,26 @@ Laravel 標準のディレクトリ構成であれば、上記手順のみで OK
 具体的な使い方については [サンプルプロジェクト](https://github.com/k2tzumi/eg-r2-example) を用意しましたのでそちらも参考にしてみてください。
 API 仕様書を作成するコマンドも make で用意していますので、API 仕様書を見ながらソースを眺めてもらえると🙏。
 
-```
+```bash
 make redoc
 ```
 
-### リクエストのValidationの自動生成方法
+### リクエストのバリデーション自動生成方法
 
-FormRequest に 2 つの Trait を use してください。
+eg-r2 を使用すると、リクエストのバリデーションを自動生成することができます。
+これにより、手動でバリデーションルールを記述する手間が省け、コードの一貫性が保たれます。
 
-https://github.com/k2tzumi/eg-r2-example/blob/main/app/Http/Requests/Pet.php#L22-L36
+### 手順
 
-まず `Litalico\EgR2\Http\Requests\RequestRuleGeneratorTrait` について説明します。
-この Trait は　swagger-php の Attribute を読み込んで Laravel 向けの Validator の定義を自動展開します。
-rules メソッドが上書きされて、Validation ルールを改めて実装する必要がなくなります。
+1. **リクエストクラスの作成**
+  まず、リクエストクラスを作成します。
+  FormRequest に 2 つの Trait を use してください。
+
+  https://github.com/k2tzumi/eg-r2-example/blob/main/app/Http/Requests/Pet.php#L22-L36
+
+  まず `Litalico\EgR2\Http\Requests\RequestRuleGeneratorTrait` について説明します。
+  この Trait は　swagger-php の Attribute を読み込んで Laravel 向けの Validator の定義を自動展開します。
+  rules メソッドが上書きされて、Validation ルールを改めて実装する必要がなくなります。
 
 OpenAPI で定義されている型（`type`）や制限（`pattern`）と制約等（`required` や `nullable`）が、Laravel の Validation ルールへ変換されます。
 こちらの変換ルールですが、OpenAPI で扱える記述をいい感じに変換されるように実装しています。
@@ -173,77 +176,81 @@ object 内の key のユニーク制約を担保させたい場合も以下の�
 public string $key;
 ```
 
-もう 1 つの `Litalico\EgR2\Http\Requests\FormRequestPropertyHandlerTrait` の説明をします。  
-こちらを use すると、Validation が OK になったら、そのパラメータを FormRequest クラスのプロパティとしてアクセスできるようにしています。
-通常の FormRequest クラスのパラメータのプロパティへのアクセスはマジックメソッド経由になっている為、直接プロパティを定義できません。
-IDE 補完をさせる為に以下のような記述します。
+2. **リクエストオブジェクトへのアクセス方法**
+  もう 1 つの `Litalico\EgR2\Http\Requests\FormRequestPropertyHandlerTrait` の説明をします。  
+  こちらを use すると、Validation が OK になったら、そのパラメータを FormRequest クラスのプロパティとしてアクセスできるようにしています。
+  通常の FormRequest クラスのパラメータのプロパティへのアクセスはマジックメソッド経由になっている為、直接プロパティを定義できません。
+  IDE 補完をさせる為に以下のような記述します。
+    ```php
+    /**
+     * @property int $age
+    * @property string $name
+    * @property bool $is_active
+    */
+    class MyFormRequest extends FormRequest
+    {
+      public function rules()
+      {
+        return [
+          'age' => 'required|integer',
+          'name' => 'required|string',
+          'is_active' => 'required|boolean',
+        ];
+      }
+    }
+    ```
+    eg-r2 の FormRequest では、直接プロパティ定義がされます。これにより、Controller から真に型安全で処理が書けるようになります。　^[アノテーションで記載する方法では静的解析での型チェックはできますが、実行時の型チェックまではできません。]
+    ```php
+    #[Schema(title: 'My request', required: ['age', 'name', 'is_active'])]
+    class MyFormRequest extends FormRequest
+    {
+      use RequestRuleGeneratorTrait, FormRequestPropertyHandlerTrait;  
 
-```php
-/**
- * @property int $age
- * @property string $name
- * @property bool $is_active
- */
-class MyFormRequest extends FormRequest
-{
-  public function rules()
-  {
-    return [
-      'age' => 'required|integer',
-      'name' => 'required|string',
-      'is_active' => 'required|boolean',
-    ];
-  }
-}
-```
+      #[Property(property: 'age', type: 'integer', format: 'int64')]
+      public int $age;
 
-eg-r2 の FormRequest では、直接プロパティ定義がされます。これにより、Controller から真に型安全で処理が書けるようになります。　^[アノテーションで記載する方法では静的解析での型チェックはできますが、実行時の型チェックまではできません。]
+      #[Property(property: 'name', type: 'string')]
+      public string $name;
 
-```php
-#[Schema(title: 'My request', required: ['age', 'name', 'is_active'])]
-class MyFormRequest extends FormRequest
-{
-  use RequestRuleGeneratorTrait, FormRequestPropertyHandlerTrait;  
+      #[Property(property: 'is_active', type: 'boolean')]
+      public boolean $is_active;
 
-  #[Property(property: 'age', type: 'integer', format: 'int64')]
-  public int $age;
-
-  #[Property(property: 'name', type: 'string')]
-  public string $name;
-
-  #[Property(property: 'is_active', type: 'boolean')]
-  public boolean $is_active;
-
-  // roulesメソッドはtraitで自動生成しているので不要
-}
-```
-
-上記 FormRequest を定義して Controler からは以下の様に記載できます。
-
-```php
-  public function something(MyFormRequest $request): JsonResponse
-  {
-    // ageを参照する処理
-    $request->age,
-    // .. snip  ..
-```
+      // roulesメソッドはtraitで自動生成しているので不要
+    }
+    ```
+    上記 FormRequest を定義して Controler からは以下の様に記載できます。
+    ```php
+      public function something(MyFormRequest $request): JsonResponse
+      {
+        // ageを参照する処理
+        $request->age,
+        // .. snip  ..
+    ```
 
 ### ルートファイルの自動生成方法
 
-アプリケーションのルーティング設定のルートファイルは以下のコマンドで自動生成がされます。
+### 手順
 
-```
-php artisan eg-r2:generate-route
-```
+1. **コントローラークラスの作成**
+  まず、コントローラーを作成します。
+  
+https://github.com/k2tzumi/eg-r2-example/blob/main/app/Http/Controllers/Pet.php#L14-L46
 
-実際に自動生成されたファイルがこちらになります。
+  通常のコントローラークラスにエンドポイントのメソッドを定義します。
+  そのメソッドに対して swagger-php でエンドポイントの仕様を記載します。
 
-https://github.com/k2tzumi/eg-r2-example/blob/main/routes/eg_r2.php
+2. **ルーティングファイルの作成**
+  アプリケーションのルーティング設定のルートファイルは以下のコマンドで自動生成がされます。
+    ```bash
+    php artisan eg-r2:generate-route
+    ```
+　　実際に自動生成されたファイルがこちらになります。
 
-もしパスを標準の `routes/eg_r2.php` から変更したい場合は、 `config/eg_r2.php` の [route_path](https://github.com/k2tzumi/eg-r2-example/blob/main/config/eg_r2.php#L26) を編集してください。
+  https://github.com/k2tzumi/eg-r2-example/blob/main/routes/eg_r2.php
 
+  パスを変更したい場合は、 `config/eg_r2.php` の [route_path](https://github.com/k2tzumi/eg-r2-example/blob/main/config/eg_r2.php#L26) を編集してください。
 
-## やってみてどうだったか？
+## 取り組み結果・感想
 
 `eg-r2` を OSS 化する前の 1 年半前から同じ開発プロセスでスキーマ駆動開発を行ってきた感想を以下にまとめます。
 
@@ -274,12 +281,44 @@ eg-r2 を使うと、API 仕様書が完成した時点でリクエスト受付�
 eg-r2 の自動生成機能は非常に便利ですが、API 仕様で対応できないケースがあると、思わぬ嵌りが発生するのではないかと心配する人も多いでしょう。
 しかし最悪の場合でもルートファイルは書き換え可能ですし、Validation の自動生成は trait として機能提供していますのでルールを部分的（なんなら全て）で書き換え可能であるという安心感がありました。
 
+## まとめ
+
+本記事では、eg-r2 ライブラリを用いた API 仕様書の自動生成方法について解説しました。以下に主要なポイントをまとめます。
+
+1. **導入のハードルが低い**:
+   - swagger-php を利用していれば、ひと手間で eg-r2 を使えるようになります。
+   - 自動生成している部分は Laravel 仕様に準拠しているため、いつでも捨てることができます。
+
+2. **自動生成の利便性**:
+   - 動くコードを書くだけで高品質な API 仕様書が自動的に生成されるため、手間をかけずに API 仕様書を作成できます。
+   - swagger-php を利用することで、API 仕様書もコードレビューの対象とすることができ、品質向上に寄与します。
+
+3. **スキーマ駆動開発のサポート**:
+   - API 仕様書が完成した時点でリクエスト受付可能なエンドポイントが準備されるため、別途モックサーバーを用意する必要がありません。
+   - スキーマ駆動開発に対応しており、API 仕様書と実装が常に同期しているため、開発効率が向上します。
+
+4. **OpenAPI 仕様の記述形式に合わせる**:
+   - OpenAPI 仕様の記述形式に合わせることで、自動生成の力が最大限発揮され、仕様変更時でも円滑な開発を実現できます。
+
+5. **柔軟なカスタマイズ**:
+   - ルートファイルや Validation の自動生成は、必要に応じて部分的または全て書き換えることが可能です。これにより、プロジェクトの要件に柔軟に対応できます。
+
+eg-r2 を活用することで、効率的かつ高品質な API 開発が可能となります。ぜひ、プロジェクトに導入してみてください。
+
 ## 最後に
 
 eg-r2 というライブラリについてデザイン設計も含めて紹介させて頂きました。
 今回は Laravel 向けのライブリとなりますが、設計思想は他のフレームワークでも有効と考えています。
-ぜひご意見やご感想をお聞かせください。
 
-今回紹介したライブラリも含めたスキーマ駆動開発フローを記事にまとめています。よりスキーマの品質を上げる為のプロセスに言及していますので、合わせて御覧ください。
+次のステップとして、eg-r2 の導入事例を増やし、OpenAPI の仕様のカバー範囲と Laravel での再現性の向上を目指したいと考えています。
+また、より良い開発者体験となるように改善を続けていきます。
+
+そのために、読者の皆様には実際に eg-r2 を導入していただき、フィードバックを頂けると幸いです。
+皆様のご意見やご感想が、今後の改善に大いに役立ちます。
+
+今回紹介したライブラリも含めたスキーマ駆動開発フローを記事にまとめています。
+よりスキーマの品質を上げるためのプロセスに言及していますので、合わせてご覧ください。
+
+ぜひご意見やご感想をお聞かせください。
 
 https://zenn.dev/katzumi/articles/schema-driven-development-flow
