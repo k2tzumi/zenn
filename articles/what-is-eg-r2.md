@@ -126,7 +126,7 @@ eg-r2 をプロジェクトに導入する方法について説明します。�
    ```bash
    composer require litalico-engineering/eg-r2
    ```
-2. 設定 config ディレクトリに eg-r2.php ファイルを作成し、必要な設定を行います。
+2. 設定 config ディレクトリに eg-r2.php ファイルを作成し、必要な設定をする。
    ```bash
    php artisan vendor:publish --provider="Litalico\EgR2\Providers\GenerateRouteServiceProvider
    ```
@@ -145,7 +145,7 @@ make redoc
 
 ### リクエストのバリデーション自動生成方法
 
-eg-r2 を使用すると、リクエストのバリデーションを自動生成することができます。
+eg-r2 を使用すると、リクエストのバリデーションを自動生成できます。
 これにより、手動でバリデーションルールを記述する手間が省け、コードの一貫性が保たれます。
 
 ### 手順
@@ -201,7 +201,7 @@ public string $key;
     ```
     eg-r2 の FormRequest では、直接プロパティ定義がされます。これにより、Controller から真に型安全で処理が書けるようになります。　^[アノテーションで記載する方法では静的解析での型チェックはできますが、実行時の型チェックまではできません。]
     ```php
-    #[Schema(title: 'My request', required: ['age', 'name', 'is_active'])]
+    #[Schema(title: 'My request', required:['age', 'name', 'is_active'])]
     class MyFormRequest extends FormRequest
     {
       use RequestRuleGeneratorTrait, FormRequestPropertyHandlerTrait;  
@@ -244,7 +244,7 @@ https://github.com/k2tzumi/eg-r2-example/blob/main/app/Http/Controllers/Pet.php#
     ```bash
     php artisan eg-r2:generate-route
     ```
-　　実際に自動生成されたファイルがこちらになります。
+    実際に自動生成されたファイルがこちらになります。
 
   https://github.com/k2tzumi/eg-r2-example/blob/main/routes/eg_r2.php
 
@@ -286,22 +286,22 @@ eg-r2 の自動生成機能は非常に便利ですが、API 仕様で対応で�
 本記事では、eg-r2 ライブラリを用いた API 仕様書の自動生成方法について解説しました。以下に主要なポイントをまとめます。
 
 1. **導入のハードルが低い**:
-   - swagger-php を利用していれば、ひと手間で eg-r2 を使えるようになります。
-   - 自動生成している部分は Laravel 仕様に準拠しているため、いつでも捨てることができます。
+   - swagger-php を利用していれば、ひと手間で eg-r2 を使い始められる。
+   - 自動生成している部分は Laravel 仕様に準拠しているため、いつでも使い捨てできる。
 
 2. **自動生成の利便性**:
-   - 動くコードを書くだけで高品質な API 仕様書が自動的に生成されるため、手間をかけずに API 仕様書を作成できます。
-   - swagger-php を利用することで、API 仕様書もコードレビューの対象とすることができ、品質向上に寄与します。
+   - 動くコードを書くだけで高品質な API 仕様書が自動的に生成されるため、手間をかけずに API 仕様書を作成できる。
+   - swagger-php を利用することで、API 仕様書もコードレビューの対象とでき、品質向上に寄与する。
 
 3. **スキーマ駆動開発のサポート**:
    - API 仕様書が完成した時点でリクエスト受付可能なエンドポイントが準備されるため、別途モックサーバーを用意する必要がありません。
-   - スキーマ駆動開発に対応しており、API 仕様書と実装が常に同期しているため、開発効率が向上します。
+   - スキーマ駆動開発に対応しており、API 仕様書と実装が常に同期しているため、開発効率が向上する。
 
 4. **OpenAPI 仕様の記述形式に合わせる**:
-   - OpenAPI 仕様の記述形式に合わせることで、自動生成の力が最大限発揮され、仕様変更時でも円滑な開発を実現できます。
+   - OpenAPI 仕様の記述形式に合わせることで、自動生成の力が最大限発揮され、仕様変更時でも円滑な開発を実現できる。
 
 5. **柔軟なカスタマイズ**:
-   - ルートファイルや Validation の自動生成は、必要に応じて部分的または全て書き換えることが可能です。これにより、プロジェクトの要件に柔軟に対応できます。
+   - ルートファイルや Validation の自動生成は、必要に応じて部分的または全て書き換えることが可能。これにより、プロジェクトの要件に柔軟に対応できる。
 
 eg-r2 を活用することで、効率的かつ高品質な API 開発が可能となります。ぜひ、プロジェクトに導入してみてください。
 
