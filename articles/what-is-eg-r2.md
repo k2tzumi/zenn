@@ -3,7 +3,7 @@ title: "頑張らないスキーマ駆動開発を支える『eg-r2』を公開�
 emoji: "🦥"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["openapi","laravel","PHP","スキーマ駆動開発"]
-published: false
+published: true
 ---
 
 こんにちは。 [@katzumi](https://zenn.dev/katzumi) です。  
