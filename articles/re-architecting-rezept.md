@@ -4,6 +4,7 @@ emoji: "🧬"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["アドベントカレンダー","リアーキテクティング","開発プロセス","ddd"]
 published: true
+publication_name: "litalico"
 published_at: 2022-12-14 00:00
 ---
 :::message
