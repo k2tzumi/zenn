@@ -4,6 +4,7 @@ emoji: "🎤"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["アドベントカレンダー","スライド","プレゼン","カンファレンス"]
 published: true
+publication_name: "litalico"
 published_at: 2023-12-09 00:00
 ---
 :::message
