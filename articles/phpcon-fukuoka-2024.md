@@ -98,7 +98,7 @@ https://speakerdeck.com/shogogg/pasuwadoyomoyamahua
 
 勝手に開発者会議の開催宣言していました w。
 
-https://www.docswell.com/s/katzumi/5P9VEX-runn-developers-conference-fukuoka-2024-keynote-speech
+@[docswell](https://www.docswell.com/s/katzumi/5P9VEX-runn-developers-conference-fukuoka-2024-keynote-speech)
 
 LT 用にまとめて改めて気づきましたが、１年かけて 6 回開催できていることは大変ありがたいことだと思っています。
 

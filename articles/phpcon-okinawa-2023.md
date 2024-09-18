@@ -17,7 +17,7 @@ https://twitter.com/phpcon_okinawa/status/1703263072146817075
 ## セッション内容
 
 スライドはこちら
-https://www.docswell.com/s/katzumi/Z989R9-activerecord-pattern-unlearning-clean-architecture
+@[docswell](https://www.docswell.com/s/katzumi/Z989R9-activerecord-pattern-unlearning-clean-architecture)
 
 [このトークの時間帯のXポスト](https://twitter.com/search?q=since%3A2023-09-16_15%3A30%3A00_JST%20until%3A2023-09-16_16%3A15%3A00_JST%20%23phpcon_okinawa%20%23track_b&src=typed_query)
 [Discordチャネル](https://discord.com/channels/1150751595089371290/1150782186568556594)
@@ -34,7 +34,7 @@ ActiveRecordパターンについてPoEAAとかの内容を整理したり、SOL
 
 今回のセッション内容ですが、実は福岡での前夜祭のLTが元ネタになっています。  
 
-https://www.docswell.com/s/katzumi/ZJL8GX-clean-architecture-anti-pattern
+@[docswell](https://www.docswell.com/s/katzumi/ZJL8GX-clean-architecture-anti-pattern)
 
 インスピレーションを頂いたのが、こちらのPostでした。
 

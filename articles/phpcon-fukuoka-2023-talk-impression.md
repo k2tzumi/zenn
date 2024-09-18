@@ -38,8 +38,7 @@ LTの様子と資料はこちら
 ![LT風景](/images/articles/phpcon-fukuoka-2023-talk-impression/pepabo-lt.jpg)
 *轆轤を回している感ｗ*
 
-https://www.docswell.com/s/katzumi/ZJL8GX-clean-architecture-anti-pattern
-<!-- @[docswell](https://www.docswell.com/s/katzumi/ZJL8GX-clean-architecture-anti-pattern) -->
+@[docswell](https://www.docswell.com/s/katzumi/ZJL8GX-clean-architecture-anti-pattern)
 
 その後の懇親会では、初めてお会いする方が多かったのでご挨拶をしながら歓談していました。  
 LTの内容で声がけして頂いけたのが、すごく嬉しかったです。 ^[博多に向かう高速バスで資料をまとめたかいがありました]  
@@ -90,7 +89,7 @@ https://tadsan.fanbox.cc/posts/6216133
 
 [@tyamahori](https://zenn.dev/tyamahori) さんのLTをみつつ、他の人の意見を眺めるなどしました。  
 
-https://www.docswell.com/s/tyamahori/ZGXQ1L-2023-06-25-112956
+@[docswell](https://www.docswell.com/s/tyamahori/ZGXQ1L-2023-06-25-112956)
 
 自分に近い所のLTネタに対しての反応を見ているとすごい新鮮でした。  
 自分も素振りでLT飛び入りしようかと考えていましたが、タイムオーバーでした。
@@ -145,7 +144,7 @@ https://twitter.com/katzchum/status/1672447432947560448
 
 ![フリースタイル登壇](/images/articles/phpcon-fukuoka-2023-talk-impression/freestyle-speak.jpg)
 *各種ロゴステッカーを貼って気合を入れました*
-https://www.docswell.com/s/katzumi/57VJVG-github-actions-custom-actions-tips-fy2023
+@[docswell](https://www.docswell.com/s/katzumi/57VJVG-github-actions-custom-actions-tips-fy2023)
 
 内容は推しOSSを中心に、小ネタをお話させて頂きました。
 
@@ -165,7 +164,7 @@ AttributesからOpenAPIのSpecが出力できるとかなり良さそうと思�
 
 ![登壇風景](/images/articles/phpcon-fukuoka-2023-talk-impression/hall_vaddy.jpg)
 *めちゃめちゃ緊張していました*
-https://www.docswell.com/s/katzumi/5EN8N1-10-reasons-to-write-api-scenario-tests
+@[docswell](https://www.docswell.com/s/katzumi/5EN8N1-10-reasons-to-write-api-scenario-tests)
 
 待ち時間がすごく長く感じましたが、始まるとあっという間でした。  
 登壇席からセッションを見に来てくれた方の反応を見れれば良かったのですが、照明が眩しかったのとそれほど余裕もなかったので顔をあまりあげれませんでした。^[スライド用のリモコンが欲しいと感じました。sli.devでも使えるリモコンってあるんでしょうか？]  
@@ -235,7 +234,7 @@ https://twitter.com/katzchum/status/1672782317918760960
 
 帰りの時間が近づいたので最後にプロポーザルネタをLTさせて頂きました。
 
-https://www.docswell.com/s/katzumi/ZJLX7X-schema-driven-development-flow
+@[docswell](https://www.docswell.com/s/katzumi/ZJLX7X-schema-driven-development-flow)
 
 こちらのミッションもカンファレンス駆動で完遂することが出来てよかったです。  
 
@@ -281,6 +280,6 @@ https://twitter.com/tanakahisateru/status/1673314814096211969
 
 新しい推しの潮流が生まれつつあるなーと感じています。  
 
-https://www.docswell.com/s/tyamahori/598RVW-2023-06-25-113100
+@[docswell](https://www.docswell.com/s/tyamahori/598RVW-2023-06-25-113100)
 
 多分震源地はここｗ

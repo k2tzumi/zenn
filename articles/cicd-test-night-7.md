@@ -16,7 +16,7 @@ published: true
 
 [@ponkio_o](https://twitter.com/ponkio_o) さんの発表。
 
-https://speakerdeck.com/ponkio_o/ci-cd-test-night-number-7
+@[docswell](https://speakerdeck.com/ponkio_o/ci-cd-test-night-number-7)
 
 matrix job で JSON 使えるというのは初めて知りました。また照会にあった secrets を使ったやり方も使えそうだなと思いました。  
 paths フィルターは便利に使っていましたが、使い方は悩むところが多く、フィルタリングの Job を定義するやり方を照会されていたので、やっぱりやりたくなりますよねーという印象を持ちました。
@@ -47,14 +47,14 @@ ID があるとトレーサビリティをもたせることができるので�
 
 こちらの id の機能を使ってカバレッジを計測する方法を「API テストでもカバレッジ測定したい！」という LT で発表したので、興味のある方はどうぞ。
 
-https://www.docswell.com/s/katzumi/ZW17J8-how-to-measure-api-test-coverage#p29
+@[docswell](https://www.docswell.com/s/katzumi/ZW17J8-how-to-measure-api-test-coverage#p29)
 
 
 ## リリース戦略を支える CI/CD パイプライン
 
 最後に発表した内容のスライドはこちら。
 
-https://www.docswell.com/s/katzumi/58G8J9-empowering-release-strategies-cicd-pipelines
+@[docswell](https://www.docswell.com/s/katzumi/58G8J9-empowering-release-strategies-cicd-pipelines)
 
 内容は tagpr を使ってリリースマネジメントを民主化したよ！というのをデモも交えて発表しました。
 
