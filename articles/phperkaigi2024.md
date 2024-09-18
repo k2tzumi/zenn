@@ -50,7 +50,7 @@ https://speakerdeck.com/o0h/phperkaigi-2024
 LT 内容の補完する内容として大変ありがたかったです。
 
 ■API テストでもカバレッジ測定したい！   
-https://www.docswell.com/s/katzumi/ZW17J8-how-to-measure-api-test-coverage
+@[docswell](https://www.docswell.com/s/katzumi/ZW17J8-how-to-measure-api-test-coverage)
 
 runn と連携してカバレッジを取得させるという内容で発表しようとしました。  
 LT でハプニングが発生し（なぜかスライドの一部が表示されない）、完全にパニックしてしまいました。 
