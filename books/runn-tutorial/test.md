@@ -64,9 +64,9 @@ $ USER=katzumi runn run day07/test.yml
   13         body:
   14           application/json: null
   15   test: |
-  16     # ステータスコードが200であること
+  16     // ステータスコードが200であること
   17     current.res.status == 200
-  18     # 記事の件数が正しいこと
+  18     // 記事の件数が正しいこと
   19     && len(current.res.body.articles) == vars.count
 
 
