@@ -44,7 +44,7 @@ https://github.com/k2tzumi/runn-tutorial/blob/main/day16/json-template.yml#L13-L
 
 https://github.com/k2tzumi/runn-tutorial/blob/main/day16/post-scrap.yml
 
-単純に前回の 1 ステップ目をそのまま切り出した感じになあります。
+単純に前回の 1 ステップ目をそのまま切り出した感じになります。
 
 次にメインの scrap.json.template を見ていきます。
 

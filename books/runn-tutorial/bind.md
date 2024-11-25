@@ -5,7 +5,7 @@ free: true
 
 # 任意の値に別名をつける
 
-[前のチャプタ](https://zenn.dev/katzumi/books/runn-tutorial/viewer/ordered-map) でス 3 つ以上のステップも扱えるようになりました。 
+[前のチャプタ](https://zenn.dev/katzumi/books/runn-tutorial/viewer/ordered-map) で 3 つ以上のステップも扱えるようになりました。 
 複数のステップの色々な値を組み合わせながらステップを組み立てていくことが出来る様になりました。
 
 今回はその色々な値をもっと便利に参照できる方法を紹介します。
