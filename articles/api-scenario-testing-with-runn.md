@@ -2,7 +2,7 @@
 title: "APIシナリオテストの新ツールrunn"
 emoji: "🧪"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["e2e","automation","api","openapi","go","test","rest","runn"]
+topics: ["e2e","runn","api","openapi","go","test"]
 published: true
 ---
 
