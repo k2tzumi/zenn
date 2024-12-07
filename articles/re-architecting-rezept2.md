@@ -2,7 +2,7 @@
 title: "スキーマ駆動開発を支える開発プロセス＆ツール群"
 emoji: "🕹️"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["アドベントカレンダー","スキーマ駆動開発","開発プロセス","ddd"]
+topics: ["アドベントカレンダー","スキーマ駆動開発","開発プロセス","ddd","runn"]
 published: true
 publication_name: "litalico"
 published_at: 2022-12-15 00:00

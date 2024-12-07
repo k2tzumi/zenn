@@ -2,7 +2,7 @@
 title: "実装と乖離させないスキーマ駆動開発フロー / OpenAPI Laravel編"
 emoji: "📐"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["openapi","laravel","PHP","スキーマ駆動開発"]
+topics: ["openapi","laravel","PHP","スキーマ駆動開発","runn"]
 published: true
 ---
 

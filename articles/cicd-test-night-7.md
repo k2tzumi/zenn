@@ -2,7 +2,7 @@
 title: "CI/CD Test Night #7で発表してきました"
 emoji: "✅"
 type: "idea" # tech: 技術記事 / idea: アイデア
-topics: ["cicicd","プラクティス","tagpr"]
+topics: ["cicicd","プラクティス","tagpr","runn"]
 published: true
 ---
 
