@@ -123,7 +123,7 @@ MTL_HUD_ENABLED=1 WINEESYNC=1 DXVK_ASYNC=1 ROSETTA_ADVERTISE_AVX=1 WINEPREFIX=~/
 ```
 他にもいくつかオプションがありそうですが、違いがわかっていません。  
 * WINEDLLOVERRIDES  
-DDL読み込み方法を変更して、パフォーマンスに影響があることはわかっていますが、どうするのが正解なのかわかっていません。  
+DDL 読み込み方法を変更して、パフォーマンスに影響があることはわかっていますが、どうするのが正解なのかわかっていません。  
 設定すると変わらないか、遅くなる一方です。
 * DXVK_HUD
 * METAL_CAPTURE_ENABLED

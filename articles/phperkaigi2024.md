@@ -2,7 +2,7 @@
 title: "PHPerKaigi 2024振り返り"
 emoji: "🐘"
 type: "idea" # tech: 技術記事 / idea: アイデア
-topics: ["phperkaigi","conference","iwillblog"]
+topics: ["phperkaigi","conference","iwillblog","runn"]
 published: true
 ---
 

@@ -21,7 +21,7 @@ published: true
 
 https://phpcon.php.gr.jp/2023/
 
-2023-10-08開催
+2023-10-08 開催
 
 * タイムテーブル
 https://fortee.jp/phpcon-2023/timetable
@@ -40,7 +40,7 @@ https://fortee.jp/phpcon-2023/timetable
 |15:55|運用中の大規模オンラインゲームで8年ぶりにPHPバージョンアップをした話|福田 陽介さん|[Speaker Deck](https://speakerdeck.com/yosukefukuda/yun-yong-zhong-noda-gui-mo-onrainkemute-8nian-huriniphpverupwositahua)|[Link](https://twitter.com/search?q=since%3A2023-10-08_15%3A55%3A00_JST+until%3A2023-10-08_16%3A20%3A00_JST+%23phpcon+%23track1&src=savs)|
 |16:35|PHPInsightsで技術的負債の可視化始めました|赤堀　海さん|[Speaker Deck](https://speakerdeck.com/kai_akahori/phpinsightsdeji-shu-de-fu-zhai-noke-shi-hua-shi-memasita)|[Link](https://twitter.com/search?q=since%3A2023-10-08_16%3A35%3A00_JST+until%3A2023-10-08_16%3A40%3A00_JST+%23phpcon+%23track1&src=savs)|
 |16:40|PHPコードからコンパイルされた、OPcacheでキャッシュされる、OPcodeを読んでみよう| 渡邉泰暁さん(@yasuaki640)|[Speaker Deck](https://speakerdeck.com/yasuaki640/phpnoopcodewo-du-ndemiyou)|[Link](https://twitter.com/search?q=since%3A2023-10-08_16%3A40%3A00_JST+until%3A2023-10-08_16%3A45%3A00_JST+%23phpcon+%23track1&src=savs)|
-|16:45|commitを積むとは「物語を書く」ことである|asumikamさん(@asumikam)|[Speaker Deck](https://speakerdeck.com/asumikam/commit-is-the-story)|[Link](https://twitter.com/search?q=since%3A2023-10-08_16%3A45%3A00_JST+until%3A2023-10-08_16%3A50%3A00_JST+%23phpcon+%23track1&src=savs)|
+|16:45|commitを積むとは「物語を書く」ことである|asumikamさん(@asumikam)|[Speaker Deck](https://speakerdeck.com/asumikam/commit-is-the-story)|[Link](https://twitter.com/search?q=since%3A2023-10-08_16%3A45%3A00_JST+until%3A2023-10-08_16%3A50%3A00_JST+%23phpcon+%23track1&src=savs)|
 |16:50|これから始める！ニ段飛ばしのPHPバージョンアッププロジェクト戦略|matsusukeさん(@mtfuji0mtske)|[Speaker Deck](https://speakerdeck.com/keisukematsufuji/korekarashi-meru-niduan-fei-basinophpbaziyonatupupuroziekutozhan-lue)|[Link](https://twitter.com/search?q=since%3A2023-10-08_16%3A50%3A00_JST+until%3A2023-10-08_16%3A55%3A00_JST+%23phpcon+%23track1&src=savs)|
 |16:55|入社半年を迎える新米エンジニアがカンファレンス・勉強会から得た学び〜半年後の自分に伝えたいこと〜|0yuさん(@yud0uhu)|[Speaker Deck](https://speakerdeck.com/yud0uhu/ru-she-ban-nian-woying-eruxin-mi-enziniagakanhuarensumian-qiang-hui-karade-taxue-bi)|[Link](https://twitter.com/search?q=since%3A2023-10-08_16%3A55%3A00_JST+until%3A2023-10-08_17%3A00%3A00_JST+%23phpcon+%23track1&src=savs)|
 |17:00|PHP略語クイズ!!|加納悠史さん(@YKanoh65)|[Speaker Deck](https://speakerdeck.com/ykanoh/php-abbreviation-quiz)|[Link](https://twitter.com/search?q=since%3A2023-10-08_17%3A00%3A00_JST+until%3A2023-10-08_17%3A05%3A00_JST+%23phpcon+%23track1&src=savs)|
@@ -61,7 +61,7 @@ https://fortee.jp/phpcon-2023/timetable
 
 
 ## Track3
-4F コンベンションホール 梅
+4F コンベンションホール梅
 
 |開始時間|セッション名|登壇者|スライドURL|このトークの時間帯のポスト|
 | ---- | ---- | ---- | ---- | ---- |
@@ -76,7 +76,7 @@ https://fortee.jp/phpcon-2023/timetable
 |15:55|AWS Lambda で PHP を動かす Bref の布教に来ました。|ちゃちいさん(@chatii)|[Speaker Deck](https://speakerdeck.com/chatii/aws-lambda-de-php-wodong-kasu-bref-nobu-jiao-nilai-masita)|[Link](https://twitter.com/search?q=since%3A2023-10-08_15%3A55%3A00_JST+until%3A2023-10-08_16%3A20%3A00_JST+%23phpcon+%23track3&src=savs)|
 
 ## Track4
-4F コンベンションホール 鶯
+4F コンベンションホール鶯
 
 |開始時間|セッション名|登壇者|スライドURL|このトークの時間帯のポスト|
 | ---- | ---- | ---- | ---- | ---- |
@@ -92,7 +92,7 @@ https://fortee.jp/phpcon-2023/timetable
 
 
 ## Track5
-1F 会議室AB
+1F 会議室 AB
 
 |開始時間|セッション名|登壇者|スライドURL|このトークの時間帯のポスト|
 | ---- | ---- | ---- | ---- | ---- |
@@ -120,19 +120,19 @@ https://fortee.jp/phpcon-2023/timetable
 ## アンカンファレンス & 懇親会
 
 
-ALPS + Ray.Di (Crazy Bobトリビュート) / @koriym
+ALPS + Ray.Di (Crazy Bob トリビュート) / @koriym
 https://twitter.com/koriym/status/1710875769101221939
 
-OrbStackを布教したいv2 / @tyamahori
+OrbStack を布教したい v2 / @tyamahori
 https://www.docswell.com/s/tyamahori/Z8GRY7-2023-10-08-161623
 
 情報設計の入り口 〜 共通言語を定義しよう 〜 / @_poemn
 https://twitter.com/_poemn/status/1710903583741518320
 
-[PHPカンファレンス2023]NFCネームプレートを自作して楽しく交流しよう！/ @zoe
+[PHP カンファレンス 2023]NFC ネームプレートを自作して楽しく交流しよう！/ @zoe
 https://speakerdeck.com/ikezoemakoto/phpkanhuarensu2023-nfcnemupuretowozi-zuo-sitele-sikujiao-liu-siyou
 
-そろそろ1万人規模のLaravelのサービスをレンタルサーバーで運用している話 / @Mukae9
+そろそろ 1 万人規模の Laravel のサービスをレンタルサーバーで運用している話 / @Mukae9
 https://twitter.com/Mukae9/status/1710988086329708996
 
 デバッグ用ロガーの注入どうする? / @tanakahisateru
@@ -141,7 +141,7 @@ https://speakerdeck.com/tanakahisateru/debatuguyong-roganozhu-ru-dousuru
 本当の FizzBuzz をお見せします / @m3m0r7
 https://speakerdeck.com/memory1994/show-maji-of-fizzbuzz
 
-PHP1.0とは何だったのか / @tadsan
+PHP1.0 とは何だったのか / @tadsan
 https://tadsan.fanbox.cc/posts/6803761
 
 モブワークを進化させていった話 / [@katzumi](https://zenn.dev/katzumi)

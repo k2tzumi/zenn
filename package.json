@@ -11,10 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "zenn-cli": "^0.1.156"
+    "zenn-cli": "^0.1.158"
   },
   "devDependencies": {
-    "textlint": "^14.2.0",
+    "textlint": "^14.4.0",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-preset-ja-spacing": "^2.4.3",
     "textlint-rule-preset-ja-technical-writing": "^10.0.1"

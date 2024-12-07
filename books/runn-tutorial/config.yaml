@@ -1,6 +1,6 @@
 title: "runnチュートリアル"
 summary: "APIシナリオテストツールでもある runn の使い方をステップバイステップで理解していくチュートリアルをまとめたZenn bookです"
-topics: ["e2e","automation","api","チュートリアル"]
+topics: ["e2e","automation","api","チュートリアル","runn"]
 published: true
 price: 0 # 有料の場合200〜5000
 # 本に含めるチャプターを順番に並べましょう
