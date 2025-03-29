@@ -1,6 +1,6 @@
 ---
 title: "PHPerKaigi 2025振り返り"
-emoji: "🐘"
+emoji: "🔦"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["phperkaigi","conference","iwillblog"]
 published: true
