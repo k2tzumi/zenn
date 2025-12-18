@@ -14,7 +14,7 @@ published_at: 2025-12-18 00:00
 ## はじめに
 
 LITALICO の @katzumi です。
-[去年のアドベントカレンダー](https://zenn.dev/litalico/articles/domain-distillation)の続編となる内容となります。
+[去年のアドベントカレンダー](https://zenn.dev/litalico/articles/domain-distillation)の引き続きの内容となります。
 
  こちらのアドベントカレンダーの内容を元に [PHPカンファレンス福岡2025](https://phpcon.fukuoka.jp/2025/) にて登壇をしてきました。
 
