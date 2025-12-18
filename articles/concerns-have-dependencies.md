@@ -3,7 +3,7 @@ title: "関心ごとにも依存関係がある"
 emoji: "🔗"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["アドベントカレンダー","Microservice","DDD"]
-published: false
+published: true
 publication_name: "litalico"
 published_at: 2025-12-18 00:00
 ---
